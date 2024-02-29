@@ -18,3 +18,6 @@ else
 fi
 
 dot config status.showUntrackedFiles no
+
+# source bash_aliases if exists so dot command is available
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
