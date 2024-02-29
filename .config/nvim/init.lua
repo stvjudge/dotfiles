@@ -36,7 +36,7 @@ require("lualine").setup({
     lualine_b = {},
     lualine_c = { "filename" },
     lualine_x = { "location" },
-    lualine_y = { "preogress", "location" },
+    lualine_y = { "progress", "location" },
     lualine_z = {},
   },
   tabline = {},
