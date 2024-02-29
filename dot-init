@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+git clone --bare git@github.com:stvjudge/dotfiles.git "$HOME"/.dotfiles
+
+function dot {
+	git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" "$@"
+}
+
+mkdir -p .dotfiles-backup
+dot checkout
+if [ $? = 0 ]; then
+	echo "Checked out config."
+else
+	echo "Backing up pre-existing dot files."
+	dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+	# checkout dotfile from repo
+	dot checkout
+fi
+
+dot config status.showUntrackedFiles no
