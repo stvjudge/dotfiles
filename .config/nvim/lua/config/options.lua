@@ -20,10 +20,8 @@ opt.relativenumber = false
 opt.scrolloff = 8
 opt.linebreak = true
 
--- opt.shiftround = true
--- opt.shiftwidth = 4
--- opt.smartindent = true
+opt.shiftround = true
+opt.shiftwidth = 4
+opt.smartindent = true
 
--- opt.termguicolors = true
---
--- vim.g.mkdp_browser = "chrome"
+opt.termguicolors = true
