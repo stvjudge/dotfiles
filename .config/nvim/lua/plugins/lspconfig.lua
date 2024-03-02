@@ -8,6 +8,7 @@ return {
         marksman = {},
         terraformls = {},
         helm_ls = {},
+        jsonls = {},
       },
     },
   },
