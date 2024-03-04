@@ -25,3 +25,8 @@ opt.shiftwidth = 4
 opt.smartindent = true
 
 opt.termguicolors = true
+
+local g = vim.g
+
+g.gruvbox_material_background = "medium"
+g.gruvbox_material_better_performance = 1
