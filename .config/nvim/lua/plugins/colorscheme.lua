@@ -7,15 +7,19 @@ return {
     "folke/tokyonight.nvim",
     "catppuccin/nvim",
     "sainnhe/gruvbox-material",
-    "rebelot/kanagawa.nvim",
+    "sainnhe/sonokai",
+    "sainnhe/edge",
   },
 
   -- set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      -- colorscheme = "gruvbox-material",
       -- colorscheme = "tokyonight",
+      -- colorscheme = "kanagawa",
+      -- colorscheme = "catppuccin",
+      colorscheme = "edge",
     },
   },
 }

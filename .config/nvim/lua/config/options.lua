@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 local opt = vim.opt
+local g = vim.g
 
 opt.ignorecase = true
 
@@ -12,21 +13,26 @@ opt.cursorline = true
 opt.expandtab = true
 opt.laststatus = 3
 
+-- enable mouse
 opt.mouse = "a"
 
--- scrolling related
 opt.number = true
 opt.relativenumber = false
 opt.scrolloff = 8
 opt.linebreak = true
 
+-- indent settings
 opt.shiftround = true
 opt.shiftwidth = 4
 opt.smartindent = true
 
 opt.termguicolors = true
 
-local g = vim.g
-
+-- gruvbox theme related settings
+g.gruvbox_material_foreground = "mix"
 g.gruvbox_material_background = "medium"
 g.gruvbox_material_better_performance = 1
+
+-- edge theme related settings
+g.edge_style = "default"
+g.edge_dim_foreground = 1

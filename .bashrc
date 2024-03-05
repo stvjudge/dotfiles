@@ -122,14 +122,14 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/ibiro/.local/bin"
 export PATH="$PATH:/home/ibiro/bin"
-export PATH="/usr/local/bin/:$PATH"
 
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
 	source ~/.config/exercism/exercism_completion.bash
 fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_RUNTIME_DIR="$HOME"/.local/run
 
 export ALCONF="/mnt/c/Users/istva/AppData/Roaming/alacritty/alacritty.toml"
-
-complete -C '/usr/local/bin/aws_completer' aws
