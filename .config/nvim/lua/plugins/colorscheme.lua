@@ -4,8 +4,6 @@ return {
   -- these are here for trying out different themes
   {
     -- "wittyjudge/gruvbox-material.nvim",
-    "folke/tokyonight.nvim",
-    "catppuccin/nvim",
     "sainnhe/gruvbox-material",
     "sainnhe/sonokai",
     "sainnhe/edge",
@@ -15,11 +13,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "gruvbox-material",
-      -- colorscheme = "tokyonight",
-      -- colorscheme = "kanagawa",
-      -- colorscheme = "catppuccin",
-      colorscheme = "edge",
+      colorscheme = "gruvbox-material",
+      -- colorscheme = "edge",
+      -- colorscheme = "sonokai",
     },
   },
 }

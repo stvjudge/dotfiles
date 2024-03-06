@@ -23,7 +23,7 @@ opt.linebreak = true
 
 -- indent settings
 opt.shiftround = true
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.smartindent = true
 
 opt.termguicolors = true
@@ -35,4 +35,8 @@ g.gruvbox_material_better_performance = 1
 
 -- edge theme related settings
 g.edge_style = "default"
-g.edge_dim_foreground = 1
+g.edge_dim_foreground = 0
+
+-- sonokai them related settings
+g.sonokai_style = "andromeda"
+g.sonokai_better_performance = 1
