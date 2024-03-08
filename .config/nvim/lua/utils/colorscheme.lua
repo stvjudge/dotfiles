@@ -4,6 +4,7 @@ return {
   -- these are here for trying out different themes
   {
     -- "wittyjudge/gruvbox-material.nvim",
+    "shaunsingh/nord.nvim",
     "sainnhe/gruvbox-material",
     "sainnhe/sonokai",
     "sainnhe/edge",
@@ -21,6 +22,7 @@ return {
       -- colorscheme = "edge",
       -- colorscheme = "sonokai",
       colorscheme = "nordic",
+      -- colorscheme = "nord",
       -- colorscheme = "catppuccin",
       -- colorscheme = "tokyonight",
     },

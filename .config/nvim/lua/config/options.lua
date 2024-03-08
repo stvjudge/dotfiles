@@ -28,6 +28,13 @@ opt.smartindent = true
 
 opt.termguicolors = true
 
+opt.listchars = { tab = "-> ", space = "·", eol = "↵" }
+opt.list = true
+
+-- THEME settings
+-- nord theme related settings
+g.nord_bold = false
+
 -- gruvbox theme related settings
 g.gruvbox_material_foreground = "mix"
 g.gruvbox_material_background = "medium"
