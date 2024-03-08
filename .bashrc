@@ -114,11 +114,10 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
-
+PROMPT_DIRTRIM=2
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
-# PS1='\[\e[33m\]\u\[\e[0m\]@\[\e[38;5;243;2m\]\h\[\e[0m\]:\[\e[33m\]\W\[\e[0m\] \[\e[33m\]${PS1_CMD1}\[\e[0m\] \n> '
-# PS1='\w\[\e[0;2m\]${PS1_CMD1}\n\[\e[0m\]> '
-PS1='\[\e[38;5;51m\]\w\[\e[0;2m\]${PS1_CMD1}\n\[\e[0m\]> '
+PS1='\n\[\e[38;5;51m\]\w\[\e[0;2m\]${PS1_CMD1}\n\[\e[0m\]> '
+
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/ibiro/.local/bin"
