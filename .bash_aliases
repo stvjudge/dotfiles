@@ -35,3 +35,5 @@ alias k="kubectl"
 alias kgpa="kubectl get pods -A"
 alias kgpn="kubectl get pods --namespace $1"
 alias kgns="kubectl get namespaces"
+
+# alias vim="VIMINIT=.vim/vimrc vim"
