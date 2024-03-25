@@ -135,3 +135,6 @@ export XDG_RUNTIME_DIR="$HOME"/.local/run
 export ALCONF="/mnt/c/Users/istva/AppData/Roaming/alacritty/alacritty.toml"
 
 export BROWSER="/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
+
+export ZK_NOTEBOOK_DIR="$XDG_DATA_HOME/Notes"
+#eval "$(starship init bash)"
