@@ -122,6 +122,7 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/ibiro/.local/bin"
 export PATH="$PATH:/home/ibiro/bin"
+export PATH="$PATH:/home/ibiro/go/bin"
 
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
 	source ~/.config/exercism/exercism_completion.bash

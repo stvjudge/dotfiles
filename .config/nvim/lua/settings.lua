@@ -1,12 +1,14 @@
 local opt = vim.opt
-local o = vim.o
 local g = vim.g
 
+-- set leader to space
 g.mapleader = " "
 g.maplocalleader = " "
 
+-- scrolling
 opt.number = true
 opt.relativenumber = false
+opt.linebreak = true
 
 opt.mouse = "a"
 
@@ -21,10 +23,10 @@ opt.smartcase = true
 
 opt.cursorline = true
 
-o.expandtab = true
-o.tabstop = 4
-o.shiftwidth = 4
-o.smartindent = true
+opt.expandtab = true
+-- o.tabstop = 4
+-- o.shiftwidth = 4
+-- o.smartindent = true
 
 opt.listchars = {
     space = "·",
