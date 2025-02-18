@@ -1,0 +1,12 @@
+
+
+alias rm="rm -i"
+alias v="nvim"
+alias ll="ls -lhac"
+alias ..="cd .."
+alias ...="cd ~"
+alias h="history"
+alias t="tree -al"
+alias c="clear"
+alias z="zellij"
+alias sob=". ~/.bash_profile"

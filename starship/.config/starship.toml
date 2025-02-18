@@ -1,0 +1,47 @@
+add_newline = true
+command_timeout = 1800
+format = """$os$username$hostname$kubernetes$directory$git_branch$git_status
+$character
+"""
+
+[character]
+success_symbol = "[>](bold green) "
+error_symbol = "[>](bold red) "
+
+[directory]
+truncation_length = 1
+truncation_symbol = ".../"
+home_symbol = "󰋜 ~"
+read_only_style = "197"
+read_only = "  "
+format = "at [$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = ' '
+format = 'via [$symbol$branch]($style)'
+truncation_symbol = '…/'
+style = 'bold green'
+
+[git_status]
+format = '([ \( $all_status$ahead_behind\)]($style) )'
+style = 'bold green'
+conflicted = '[ confliced=${count}](red) '
+diverged = ' ahead=${ahead_count}  behind=${behind_count}'
+behind = ' behind=${count}'
+stashed = '[ stashed=${count}](green) '
+modified = '[󰛿 modified=${count}](yellow) '
+staged = '[󰐗 staged=${count}](green) '
+renamed = '[󱍸 renamed=${count}](yellow) '
+deleted = '[󰍶 deleted=${count}](red) '
+
+[aws]
+disabled = true
+
+[kubernetes]
+format = '''via [$symbol](purple) [$context](red bold)[( \($namespace\))](yellow bold)
+'''
+disabled = false
+symbol = "󱃾"
+
+[package]
+disabled = true
