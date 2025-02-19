@@ -10,7 +10,7 @@ return {
     "saghen/blink.cmp",
     version = "*",
 
-    event = { "InsertEnter" },
+    -- event = { "InsertEnter" },
 
     dependencies = {
       "L3MON4D3/LuaSnip",
@@ -18,49 +18,48 @@ return {
       "moyiz/blink-emoji.nvim",
     },
 
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer", "lazydev", "markdown" },
-      providers = {
-        markdown = {
-          name = "RMD",
-          module = "render-markdown.integ.blink",
-          fallbacks = { "lsp" },
-        },
+    opts = {
+      sources = {
+        default = { "lazydev", "lsp", "path", "snippets", "markdown" },
 
-        lsp = {
-          name = "[LSP]",
-          module = "blink.cmp.sources.lsp",
-          enabled = true,
-        },
+        providers = {
+          markdown = {
+            name = "RMD",
+            module = "render-markdown.integ.blink",
+            fallbacks = { "lsp" },
+          },
 
-        snippets = {
-          name = "[Snippets]",
-          module = "blink.cmp.sources.snippets",
-          min_keyword_length = 2,
-          score_offset = 3,
-        },
+          lsp = {
+            name = "LSP",
+            module = "blink.cmp.sources.lsp",
+          },
 
-        path = {
-          name = "[Path]",
-          module = "blink.cmp.sources.path",
-          min_keyword_length = 2,
-          score_offset = 0,
+          snippets = {
+            name = "Snippets",
+            module = "blink.cmp.sources.snippets",
+            min_keyword_length = 1,
+            score_offset = 2,
+          },
 
-          opts = {
-            show_hidden_files_by_default = false,
-            get_cwd = vim.uv.cwd,
+          path = {
+            name = "Path",
+            module = "blink.cmp.sources.path",
+            min_keyword_length = 1,
+            score_offset = -1,
+
+            opts = {
+              show_hidden_files_by_default = false,
+              get_cwd = vim.uv.cwd,
+            },
+          },
+
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 99,
           },
         },
-
-        lazydev = {
-          name = "[Lazy]",
-          module = "lazydev.integrations.blink",
-          score_offset = 100,
-        },
       },
-    },
-
-    opts = {
 
       keymap = { preset = "enter" },
 
@@ -75,18 +74,35 @@ return {
       snippets = { preset = "luasnip" },
 
       completion = {
+
         ghost_text = { enabled = true },
+
         list = {
           selection = {
             preselect = true,
             auto_insert = true,
           },
         },
+
         menu = {
+          auto_show = true,
           draw = {
+            columns = {
+              {
+                "label",
+                "label_description",
+                gap = 1,
+              },
+              {
+                "kind_icon",
+                "kind",
+                gap = 1,
+              },
+            },
             treesitter = { "lsp" },
           },
         },
+
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,

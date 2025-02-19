@@ -54,3 +54,5 @@ g.gruvbox_material_background = "hard"
 g.gruvbox_material_foreground = "material"
 g.gruvbox_material_ui_contrast = "high"
 g.gruvbox_contrast_dark = "hard"
+
+vim.o.background = "dark"
