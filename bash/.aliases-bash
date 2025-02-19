@@ -1,12 +1,23 @@
+#
+# ~/.aliases-zsh
+#
 
+# Docker aliases
+alias d="docker"
+alias dpsa="docker container ps -a"
+alias dils="docker image ls"
+alias dins="docker inspect"
 
-alias rm="rm -i"
-alias v="nvim"
-alias ll="ls -lhac"
+alias lg="lazygit"
+alias ll="ls -lha"
 alias ..="cd .."
 alias ...="cd ~"
-alias h="history"
-alias t="tree -al"
 alias c="clear"
+alias h="history"
+alias t="tree --dirsfirst -F"
+alias rm="rm -i"
+alias v="nvim"
 alias z="zellij"
-alias sob=". ~/.bash_profile"
+alias sozsh=". ~/.zshrc"
+alias f="fzf --height=40% --layout=reverse --info=inline --border --filepath-word --cycle"
+alias p="python3"
