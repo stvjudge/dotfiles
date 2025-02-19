@@ -7,7 +7,7 @@ alias d="docker"
 alias dpsa="docker container ps -a"
 alias dils="docker image ls"
 alias dins="docker inspect"
-
+alias dot="cd ~/dotfiles"
 alias lg="lazygit"
 alias ll="ls -lha"
 alias ..="cd .."

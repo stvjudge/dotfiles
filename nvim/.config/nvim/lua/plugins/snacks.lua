@@ -18,7 +18,8 @@ return {
       indent = {
         priority = 1,
         enabled = true,
-        chunk = { enabled = true },
+        -- char = "┆",
+        chunk = { enabled = true, only_current = true },
         animate = { enabled = false },
       },
 
