@@ -21,3 +21,4 @@ alias z="zellij"
 alias sozsh=". ~/.zshrc"
 alias f="fzf --height=40% --layout=reverse --info=inline --border --filepath-word --cycle"
 alias p="python3"
+alias lzd=lazydocker

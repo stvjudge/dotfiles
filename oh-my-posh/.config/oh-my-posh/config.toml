@@ -36,10 +36,13 @@ final_space = true
     style = 'plain'
 
     [blocks.segments.properties]
-      branch_icon = ''
+      branch_icon = "\uE0A0 "
+      branch_ahead_icon = "\u2191"
+      branch_identical_icon = "\u2261" 
       cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
+      source = "cli"
 
 [[blocks]]
   type = 'rprompt'
