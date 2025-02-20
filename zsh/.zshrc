@@ -18,17 +18,8 @@ eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
-# XDG directives
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-
-# Other exports
-export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME}/zellij"
-
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-eval "$(starship init zsh)"
-
+# eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"

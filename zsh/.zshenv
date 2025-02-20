@@ -1,8 +1,10 @@
 # XDG Base directory specification
-export XDG_CONFIG_HOME="$HOME/.config"         # Config files
-export XDG_CACHE_HOME="$HOME/.cache"           # Cache files
-export XDG_DATA_HOME="$HOME/.local/share"      # Application data
-export XDG_STATE_HOME="$HOME/.local/state"     # Logs and state files
+export XDG_CONFIG_HOME="$HOME/.config"                  # Config files
+export XDG_CACHE_HOME="$HOME/.cache"                    # Cache files
+export XDG_DATA_HOME="$HOME/.local/share"               # Application data
+export XDG_STATE_HOME="$HOME/.local/state"              # Logs and state files
+
+export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME}/zellij"    # Set Zellij home for config
 
 
 # Locale settings
