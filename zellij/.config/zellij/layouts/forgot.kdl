@@ -1,0 +1,6 @@
+layout {
+    floating_panes {
+      plugin location="$HOME/.config/zellij/plugins/zellij_forgot.wasm"
+    }
+  }
+}
