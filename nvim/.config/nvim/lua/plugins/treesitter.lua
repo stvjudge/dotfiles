@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
-    version = false, -- last release is way too old and doesn't work on Windows
+    -- version = false, -- last release is way too old and doesn't work on Windows
     build = ":TSUpdate",
     event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
     init = function(plugin)
