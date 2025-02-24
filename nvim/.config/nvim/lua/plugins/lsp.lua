@@ -25,6 +25,7 @@ return {
             "sh",
             "toml",
             "yaml",
+            "yaml.docker-compose",
         },
 
         config = function()
@@ -100,6 +101,22 @@ return {
                     })
                 end,
 
+                -- Dockerfile lang server
+                ["dockerls"] = function()
+                    lspconfig.dockerls.setup({
+                        capabilities = capabilities,
+                        settings = {},
+                    })
+                end,
+
+                -- Docker-compose lang server
+                ["docker_compose_language_service"] = function()
+                    lspconfig.docker_compose_language_service.setup({
+                        capabilities = capabilities,
+                    })
+                end,
+
+                -- Lua lang server
                 ["lua_ls"] = function()
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
@@ -120,6 +137,7 @@ return {
                         },
                     })
                 end,
+
                 -- JSON lang server
                 ["jsonls"] = function()
                     lspconfig.jsonls.setup({

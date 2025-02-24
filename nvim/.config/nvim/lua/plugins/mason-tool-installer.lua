@@ -9,6 +9,8 @@ return {
         auto_update = false,
         ensure_installed = {
             "bashls",
+            "docker_compose_language_service",
+            "dockerls",
             "eslint_d",
             "jsonlint",
             "jsonls",

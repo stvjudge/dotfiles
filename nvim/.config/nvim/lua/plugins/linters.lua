@@ -3,7 +3,7 @@ local vim = vim
 ---@type LazySpec
 return {
     "mfussenegger/nvim-lint",
-    event = { "LspAttach" },
+    event = "LspAttach",
     config = function()
         local lint = require("lint")
 
@@ -13,6 +13,7 @@ return {
             python = { "ruff" },
             sh = { "shellcheck" },
             yaml = { "yamllint" },
+            dockerfile = { "trivy" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
