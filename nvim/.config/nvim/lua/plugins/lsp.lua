@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
   {
     "folke/lazydev.nvim",
@@ -21,7 +23,9 @@ return {
   -- Nvim LSP config
   {
     "neovim/nvim-lspconfig",
+
     event = "VimEnter",
+
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",

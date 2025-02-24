@@ -1,6 +1,6 @@
--- Install lazy
+-- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
+---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -20,6 +20,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+  },
+  defaults = {
+    lazy = true,
   },
   checker = {
     enabled = true,
@@ -42,5 +45,5 @@ require("lazy").setup({
   },
 })
 
--- Init colorscheme
-vim.cmd.colorscheme("gruvbox-material")
+-- -- Init colorscheme
+-- vim.cmd.colorscheme("gruvbox-material")

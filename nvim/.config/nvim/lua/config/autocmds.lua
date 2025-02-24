@@ -7,9 +7,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-  end,
+  callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 }) end,
 })
 
 -- Start terminal in insert mode

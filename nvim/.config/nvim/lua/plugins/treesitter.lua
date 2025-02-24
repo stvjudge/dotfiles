@@ -48,6 +48,8 @@ return {
       ensure_installed = {
         "bash",
         "diff",
+        "dockerfile",
+        "nix",
         "json",
         "jsonc",
         "lua",

@@ -10,18 +10,18 @@ return {
     "saghen/blink.cmp",
     version = "*",
 
-    -- event = { "InsertEnter" },
+    event = { "InsertEnter" },
 
     dependencies = {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
+      "onsails/lspkind.nvim",
       "moyiz/blink-emoji.nvim",
     },
 
     opts = {
       sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "markdown" },
-
+        default = { "lazydev", "lsp", "buffer", "path", "snippets", "markdown" },
         providers = {
           markdown = {
             name = "RMD",
@@ -29,22 +29,28 @@ return {
             fallbacks = { "lsp" },
           },
 
+          buffer = {
+            min_keyword_length = 5,
+            max_items = 5,
+          },
+
           lsp = {
             name = "LSP",
+            min_keyword_length = 2,
             module = "blink.cmp.sources.lsp",
           },
 
           snippets = {
             name = "Snippets",
             module = "blink.cmp.sources.snippets",
-            min_keyword_length = 1,
+            min_keyword_length = 2,
             score_offset = 2,
           },
 
           path = {
             name = "Path",
             module = "blink.cmp.sources.path",
-            min_keyword_length = 1,
+            min_keyword_length = 0,
             score_offset = -1,
 
             opts = {
@@ -106,6 +112,7 @@ return {
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,
+          treesitter_highlighting = true,
         },
       },
     },
