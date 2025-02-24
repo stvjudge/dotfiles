@@ -9,7 +9,7 @@ return {
 
         lint.linters_by_ft = {
             json = { "jsonlint" },
-            lua = { "selene" }, -- Install 'selene' via homebrew instead of Mason
+            lua = { "selene" }, -- Install selene with system pkg manager instead of Mason
             python = { "ruff" },
             sh = { "shellcheck" },
             yaml = { "yamllint" },

@@ -95,7 +95,7 @@ wk.add({
     --                                    │ Git │
     --                                    ╰─────╯
     { "<leader>g", group = "Git" },
-    { "<leader>gg", "<cmd>Neogit<cr>", desc = "NeoGit" },
+    -- { "<leader>gg", "<cmd>Neogit<cr>", desc = "NeoGit" },
     --                                    ╭─────╮
     --                                    │ gpt │
     --                                    ╰─────╯

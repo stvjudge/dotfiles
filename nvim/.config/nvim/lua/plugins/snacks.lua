@@ -29,7 +29,7 @@ return {
         },
         picker = {
             layout = {
-                fullscreen = true,
+                fullscreen = false,
                 cycle = true,
                 preset = function()
                     return vim.o.columns >= 120 and "default" or "vertical"

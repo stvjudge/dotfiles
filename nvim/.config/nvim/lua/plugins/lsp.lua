@@ -41,6 +41,46 @@ return {
             -- Define LSP capabilities
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+            -- Autocommand for LSP Attach
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+                callback = function(event)
+                    local buffer = event.buf
+                    local opts = { buffer = buffer, silent = true, noremap = true }
+
+                -- Buffer-local Keybindings
+                -- Formatting is done by conform, no need to define vim.lsp.buf.format() here
+                -- stylua: ignore start
+                local buf_keymaps = {
+                    {"n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>",     "CodeAction"},
+                    {"n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>",          "Rename"},
+                    {"n", "<leader>q",  "<cmd>lua vim.diagnostic.setloclist()<CR>",   "Open diagnostics list" },
+                    {"n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>",           "HoverDocumentation"},
+                    {"n", "[d",         "<cmd>lua vim.diagnostic.goto_prev()<CR>",    "Go to previous diagnostic" },
+                    {"n", "]d",         "<cmd>lua vim.diagnostic.goto_next()<CR>",    "Go to next diagnostic" },
+                    {"n", "cr",         "<cmd>lua vim.lsp.buf.rename()<CR>",          "Rename"},
+                    {"n", "gD",         "<cmd>lua vim.lsp.buf.declaration()<CR>",     "GotoDeclaration"},
+                    {"n", "gI",         "<cmd>lua vim.lsp.buf.incoming_calls()<CR>",  "GottoIncomingCalls"},
+                    {"n", "gO",         "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>",  "GottoOutgoingCalls"},
+                    {"n", "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>",      "GotoDefinition"},
+                    {"n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>",  "GotoImplementation"},
+                    {"n", "gl",         "<cmd>lua vim.diagnostic.open_float()<CR>",   "Open floating diagnostic message" },
+                    {"n", "go",         "<cmd>lua vim.lsp.buf.type_definition()<CR>", "GotoTypeDefinition"},
+                    {"n", "gr",         "<cmd>lua vim.lsp.buf.references()<CR>",      "GotoReferences"},
+                    {"n", "gs",         "<cmd>lua vim.lsp.buf.signature_help()<CR>",  "SignatureHelp"},
+                }
+                    -- stylua: ignore end
+
+                    for _, map in ipairs(buf_keymaps) do
+                        local modes = type(map[1]) == "table" and map[1] or { map[1] }
+                        ---@diagnostic disable-next-line: param-type-mismatch
+                        for _, mode in ipairs(modes) do
+                            vim.keymap.set(mode, map[2], map[3], vim.tbl_extend("force", opts, { desc = map[4] }))
+                        end
+                    end
+                end,
+            })
+
             -- Diagnostic
             vim.diagnostic.config({
                 virtual_text = false,
@@ -63,7 +103,6 @@ return {
                 ["lua_ls"] = function()
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
-                        on_attach = on_attach,
                         settings = {
                             Lua = {
                                 runtime = {
