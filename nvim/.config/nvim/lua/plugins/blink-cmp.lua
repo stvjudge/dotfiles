@@ -9,7 +9,6 @@ return {
     {
         "saghen/blink.cmp",
         version = "*",
-
         event = { "InsertEnter" },
 
         dependencies = {
@@ -18,16 +17,17 @@ return {
             "onsails/lspkind.nvim",
             "moyiz/blink-emoji.nvim",
         },
-
+        ---@module "blink.cmp"
+        ---@type blink.cmp.Config
         opts = {
             sources = {
-                default = { "lazydev", "lsp", "buffer", "path", "snippets", "markdown" },
+                default = { "lazydev", "lsp", "buffer", "path", "snippets" },
                 providers = {
-                    markdown = {
-                        name = "RMD",
-                        module = "render-markdown.integ.blink",
-                        fallbacks = { "lsp" },
-                    },
+                    -- markdown = {
+                    --     name = "RMD",
+                    --     module = "render-markdown.integ.blink",
+                    --     fallbacks = { "lsp" },
+                    -- },
 
                     buffer = {
                         min_keyword_length = 5,
@@ -80,30 +80,19 @@ return {
             snippets = { preset = "luasnip" },
 
             completion = {
-
                 ghost_text = { enabled = true },
-
                 list = {
                     selection = {
                         preselect = true,
-                        auto_insert = true,
+                        auto_insert = false,
                     },
                 },
-
                 menu = {
                     auto_show = true,
                     draw = {
                         columns = {
-                            {
-                                "label",
-                                "label_description",
-                                gap = 1,
-                            },
-                            {
-                                "kind_icon",
-                                "kind",
-                                gap = 1,
-                            },
+                            { "label", "label_description", gap = 1 },
+                            { "kind_icon", "kind", gap = 1 },
                         },
                         treesitter = { "lsp" },
                     },
