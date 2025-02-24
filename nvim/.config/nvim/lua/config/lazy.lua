@@ -25,7 +25,6 @@ require("lazy").setup({
     spec = {
         { import = "plugins" },
     },
-
     defaults = {
         lazy = true,
     },
@@ -49,6 +48,3 @@ require("lazy").setup({
         },
     },
 })
-
--- -- Init colorscheme
--- vim.cmd.colorscheme("gruvbox-material")

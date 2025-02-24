@@ -1,4 +1,5 @@
 local opt = vim.opt
+local o = vim.o
 local g = vim.g
 
 -- Global editor settings --
@@ -37,11 +38,25 @@ opt.relativenumber = true
 opt.scrolloff = 8
 opt.linebreak = true
 
-opt.shiftround = true
-opt.shiftwidth = 4
 opt.smartindent = true
 
-opt.foldenable = false
+-- Fold settings
+o.foldenable = false
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldmethod = "expr"
+
+-- Wildmenu
+o.wildmenu = true
+o.wildmode = "longest:full,full"
+o.wildoptions = "pum"
+
+-- Use spaces for tabs and whatnot
+o.tabstop = 4
+o.shiftwidth = 4
+o.shiftround = true
+o.expandtab = true
 
 opt.termguicolors = true
 

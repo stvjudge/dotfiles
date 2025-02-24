@@ -12,10 +12,18 @@ return {
             size = 1 * 1024 * 1024, -- 1 MB
             notify = true,
         },
-        dashboard = { enabled = true },
+        dashboard = {
+            enabled = true,
+            example = "github",
+        },
         git = { enabled = true },
         gitbrowse = { enabled = true },
-        indent = { enabled = true },
+        indent = {
+            enabled = true,
+            chunk = {
+                enabled = true,
+            },
+        },
         input = { enabled = true },
         image = { enabled = false },
         notifier = {

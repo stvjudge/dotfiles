@@ -80,7 +80,7 @@ return {
             snippets = { preset = "luasnip" },
 
             completion = {
-                ghost_text = { enabled = true },
+                ghost_text = { enabled = false },
                 list = {
                     selection = {
                         preselect = true,
