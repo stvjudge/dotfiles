@@ -11,18 +11,18 @@ opt.ignorecase = true
 opt.clipboard = "unnamedplus"
 -- Enable WslClipboard provider for clipboard
 if vim.fn.has("wsl") == 1 then
-  vim.g.clipboard = {
-    name = "WslClipboard",
-    copy = {
-      ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
-    },
-    paste = {
-      ["+"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
-      ["*"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
-    },
-    cache_enabled = 0,
-  }
+    vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "clip.exe",
+            ["*"] = "clip.exe",
+        },
+        paste = {
+            ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
 end
 
 opt.confirm = true
@@ -38,8 +38,10 @@ opt.scrolloff = 8
 opt.linebreak = true
 
 opt.shiftround = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
+
+opt.foldenable = false
 
 opt.termguicolors = true
 
