@@ -16,6 +16,8 @@ export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conve
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Setup wsl browser support
+export BROWSER="xdg-open"
 # Add /usr/local/bin to the beginning of the PATH environment variable.
 # This ensures that executables in /usr/local/bin are found before other directories in the PATH.
 export PATH="/usr/local/bin:$PATH"
