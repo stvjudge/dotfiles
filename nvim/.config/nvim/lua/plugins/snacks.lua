@@ -13,10 +13,11 @@ return {
             notify = true,
         },
         dashboard = {
-            enabled = true,
-            example = "github",
+            -- Config moved to its own lua file
         },
+
         git = { enabled = true },
+
         gitbrowse = { enabled = true },
         indent = {
             enabled = true,
