@@ -19,7 +19,7 @@ return {
             "marksman",
             "prettier",
             "pyright",
-            "shellcheck",
+            -- "shellcheck",
             "shfmt",
             "stylua",
             "yamlfmt",
