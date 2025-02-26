@@ -9,9 +9,10 @@ return {
 
         lint.linters_by_ft = {
             json = { "jsonlint" },
+            go = { "codespell", "golangcilint" },
             lua = { "selene" }, -- Install selene with system pkg manager instead of Mason
             python = { "ruff" },
-            sh = { "shellcheck" },
+            sh = { "bash", "shellcheck" },
             yaml = { "yamllint" },
             dockerfile = { "trivy" },
         }

@@ -12,6 +12,7 @@ return {
             "docker_compose_language_service",
             "dockerls",
             "eslint_d",
+            "gopls",
             "jsonlint",
             "jsonls",
             "lua_ls",
@@ -25,6 +26,7 @@ return {
             "yamlfmt",
             "yamllint",
             "yamlls",
+            "vimls",
         },
     },
 }

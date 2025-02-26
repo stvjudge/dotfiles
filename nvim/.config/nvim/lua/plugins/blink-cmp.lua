@@ -21,13 +21,13 @@ return {
         ---@type blink.cmp.Config
         opts = {
             sources = {
-                default = { "lazydev", "lsp", "buffer", "path", "snippets" },
+                default = { "lazydev", "lsp", "buffer", "path", "snippets", "markdown" },
                 providers = {
-                    -- markdown = {
-                    --     name = "RMD",
-                    --     module = "render-markdown.integ.blink",
-                    --     fallbacks = { "lsp" },
-                    -- },
+                    markdown = {
+                        name = "RMD",
+                        module = "render-markdown.integ.blink",
+                        fallbacks = { "lsp" },
+                    },
 
                     buffer = {
                         min_keyword_length = 5,

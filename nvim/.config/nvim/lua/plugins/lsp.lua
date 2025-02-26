@@ -168,6 +168,12 @@ return {
                         },
                     })
                 end,
+                -- GO lang server
+                ["gopls"] = function()
+                    lspconfig.gopls.setup({
+                        capabilities = capabilities,
+                    })
+                end,
             })
 
             require("lspconfig.ui.windows").default_options.border = "single"
