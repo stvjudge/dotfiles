@@ -23,6 +23,7 @@ return {
             -- "shellcheck",
             "shfmt",
             "stylua",
+            "trivy",
             "yamlfmt",
             "yamllint",
             "yamlls",

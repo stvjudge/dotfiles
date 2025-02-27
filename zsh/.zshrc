@@ -5,12 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[[ -f ~/.aliases-zsh ]] && . ~/.aliases-zsh
+[[ -f ~/.aliases-zsh ]] && source ~/.aliases-zsh
+[[ -f ~/projects/.project-aliases ]] && source ~/projects/.project-aliases
 
 # Options
 setopt histignorealldups        # Ignore duplicate commands in history file
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 autoload -Uz select-word-style  # Fix some keys inside zsh
 select-word-style bash
+
+complete -C '/usr/bin/aws_completer' aws
 
 # Add highlight enabled tab completion with colors
 zstyle ':completion:*' menu select
