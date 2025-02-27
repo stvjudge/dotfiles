@@ -1,12 +1,21 @@
 #
 # ~/.aliases-zsh
 #
+# Kubectl aliases
+alias k="kubectl"
+alias kg="kubectl get"
+alias kgpo="kubectl get pod"
+alias kns="kubens"
+alias kctx="kubectx"
 
 # Docker aliases
 alias d="docker"
 alias dpsa="docker container ps -a"
 alias dils="docker image ls"
 alias dins="docker inspect"
+alias ld="lazydocker"
+
+# Shell aliases
 alias dot="cd ~/dotfiles"
 alias lg="lazygit"
 alias ll="ls -lha --color"

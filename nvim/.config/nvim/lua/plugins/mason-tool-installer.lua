@@ -24,6 +24,7 @@ return {
             "shfmt",
             "stylua",
             "trivy",
+            "taplo",
             "yamlfmt",
             "yamllint",
             "yamlls",

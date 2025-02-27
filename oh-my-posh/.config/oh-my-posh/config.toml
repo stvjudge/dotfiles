@@ -3,74 +3,104 @@ version = 3
 final_space = true
 
 [secondary_prompt]
-  template = '❯❯ '
-  foreground = 'magenta'
-  background = 'transparent'
+template = '❯❯ '
+foreground = 'magenta'
+background = 'transparent'
 
 [transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+# template = '❯ '
+template = "> "
+background = 'transparent'
+foreground_templates = [
+    '{{if gt .Code 0}}red{{end}}',
+    '{{if eq .Code 0}}magenta{{end}}',
+]
+
+# kubectl context and namespace above prompt
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+type = "kubectl"
+style = "plain"
+foreground = "p:grey"
+background = "transparent"
+template = " ﴱ <d>{{ .Context }}{{if .Namespace}} :: {{.Namespace}}{{end}}</d> "
+
+# main prompt
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+# path segment
+[[blocks.segments]]
+template = '{{ .Path }}'
+foreground = 'blue'
+background = 'transparent'
+type = 'path'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+style = 'full'
+
+# Display AWS profile
+# [[blocks.segments]]
+# type = "aws"
+# foreground = 'p:grey'
+# background = 'transparent'
+# template = " |  {{.Profile}} |"
+
+# git segement
+[[blocks.segments]]
+template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+# template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
+foreground = 'p:grey'
+background = 'transparent'
+type = 'git'
+style = 'plain'
+
+[blocks.segments.properties]
+branch_icon = "\uE0A0 "
+branch_ahead_icon = "\u2191"
+branch_identical_icon = "\u2261"
+cache_duration = 'none'
+commit_icon = '@'
+fetch_status = true
+source = "cli"
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'rprompt'
+overflow = 'hidden'
 
-  [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = 'blue'
-    background = 'transparent'
-    type = 'path'
-    style = 'plain'
+[[blocks.segments]]
+template = '{{ .FormattedMs }}'
+foreground = 'yellow'
+background = 'transparent'
+type = 'executiontime'
+style = 'plain'
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      style = 'full'
-
-  [[blocks.segments]]
-    # template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
-    foreground = 'p:grey'
-    background = 'transparent'
-    type = 'git'
-    style = 'plain'
-
-    [blocks.segments.properties]
-      branch_icon = "\uE0A0 "
-      branch_ahead_icon = "\u2191"
-      branch_identical_icon = "\u2261" 
-      cache_duration = 'none'
-      commit_icon = '@'
-      fetch_status = true
-      source = "cli"
+[blocks.segments.properties]
+cache_duration = 'none'
+threshold = 5000
 
 [[blocks]]
-  type = 'rprompt'
-  overflow = 'hidden'
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = 'yellow'
-    background = 'transparent'
-    type = 'executiontime'
-    style = 'plain'
+[[blocks.segments]]
+template = '❯'
+background = 'transparent'
+type = 'text'
+style = 'plain'
+foreground_templates = [
+    '{{if gt .Code 0}}red{{end}}',
+    '{{if eq .Code 0}}magenta{{end}}',
+]
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      threshold = 5000
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-
-  [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
+[blocks.segments.properties]
+cache_duration = 'none'

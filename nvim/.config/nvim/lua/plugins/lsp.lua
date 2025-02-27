@@ -174,6 +174,12 @@ return {
                         capabilities = capabilities,
                     })
                 end,
+                -- TOML lang server
+                ["taplo"] = function()
+                    lspconfig.taplo.setup({
+                        capabilities = capabilities,
+                    })
+                end,
             })
 
             require("lspconfig.ui.windows").default_options.border = "single"

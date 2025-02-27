@@ -32,7 +32,6 @@ return {
                     title = "Recent Files",
                     section = "recent_files",
                     indent = 2,
-                    -- gap = 1,
                     padding = 1,
                 },
                 {
@@ -40,8 +39,13 @@ return {
                     icon = " ",
                     title = "Projects",
                     section = "projects",
+                    dirs = {
+                        "~/projects/phoenix/",
+                        "~/projects/nursetim/",
+                        "~/projects/prepu/",
+                        "~/dotfiles/",
+                    },
                     indent = 2,
-                    -- gap = 1,
                     padding = 1,
                 },
                 {
