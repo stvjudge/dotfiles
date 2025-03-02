@@ -2,13 +2,8 @@
 ---@type LazySpec
 return {
     "rachartier/tiny-inline-diagnostic.nvim",
-    -- event = "LspAttach",
-    event = {
-        "BufReadPost",
-        "BufNewFile",
-    },
-
-    priority = 1000, -- Plugin needs to be loaded first
+    event = "VeryLazy",
+    priority = 999, -- Plugin needs to be loaded first
 
     opts = {
         vim.diagnostic.config({ virtual_text = false }),

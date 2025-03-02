@@ -65,11 +65,11 @@ opt.list = true
 
 g.deprecation_warnings = true
 
-g.gruvbox_material_enable_italic = true
-g.gruvbox_material_better_performance = 1
-g.gruvbox_material_background = "hard"
-g.gruvbox_material_foreground = "material"
-g.gruvbox_material_ui_contrast = "high"
-g.gruvbox_contrast_dark = "hard"
+-- g.gruvbox_material_enable_italic = true
+-- g.gruvbox_material_better_performance = 1
+-- g.gruvbox_material_background = "hard"
+-- g.gruvbox_material_foreground = "material"
+-- g.gruvbox_material_ui_contrast = "high"
+-- g.gruvbox_contrast_dark = "hard"
 
 vim.o.background = "dark"
