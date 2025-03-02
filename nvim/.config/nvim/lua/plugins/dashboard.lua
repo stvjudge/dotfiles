@@ -39,12 +39,6 @@ return {
                     icon = " ",
                     title = "Projects",
                     section = "projects",
-                    dirs = {
-                        "~/projects/phoenix/",
-                        "~/projects/nursetim/",
-                        "~/projects/prepu/",
-                        "~/dotfiles/",
-                    },
                     indent = 2,
                     padding = 1,
                 },
