@@ -36,7 +36,14 @@ return {
             top_down = true,
             width = { min = 12, max = 0.3 },
         },
+        explorer = {
+            enabled = true,
+            replace_netrw = true,
+        },
         picker = {
+            files = {
+                hidden = true,
+            },
             layout = {
                 fullscreen = false,
                 cycle = true,
