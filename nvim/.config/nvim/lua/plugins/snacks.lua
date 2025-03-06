@@ -15,10 +15,9 @@ return {
         dashboard = {
             -- Config moved to its own lua file
         },
-
         git = { enabled = true },
-
         gitbrowse = { enabled = true },
+
         indent = {
             enabled = true,
             chunk = {
@@ -36,14 +35,7 @@ return {
             top_down = true,
             width = { min = 12, max = 0.3 },
         },
-        explorer = {
-            enabled = true,
-            replace_netrw = true,
-        },
         picker = {
-            files = {
-                hidden = true,
-            },
             layout = {
                 fullscreen = false,
                 cycle = true,
@@ -52,6 +44,9 @@ return {
                 end,
             },
             sources = { -- Configure individual pickers
+                files = {
+                    hidden = true,
+                },
                 notifications = {
                     layout = "ivy_split",
                 },

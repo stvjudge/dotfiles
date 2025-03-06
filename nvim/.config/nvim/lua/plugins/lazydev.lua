@@ -3,6 +3,7 @@ return {
         "folke/lazydev.nvim",
         ft = "lua",
         cmd = "LazyDev",
+        lazy = false,
         opts = {
             library = {
                 "$HOME/.config/nvim",
