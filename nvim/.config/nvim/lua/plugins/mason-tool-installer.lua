@@ -19,8 +19,6 @@ return {
             "markdownlint",
             "marksman",
             "prettier",
-            "pyright",
-            -- "shellcheck",
             "shfmt",
             "stylua",
             "trivy",

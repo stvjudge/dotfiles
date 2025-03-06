@@ -1,4 +1,4 @@
-std = "vim"
+# std = "vim"
 
 [lints]
 lowercase_global="allow"
@@ -6,4 +6,4 @@ mixed_table="allow"
 unused_variable="allow"
 
 [globals]
-Snacks = true
+Snacks=true

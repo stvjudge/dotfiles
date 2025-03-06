@@ -15,6 +15,9 @@ return {
         dashboard = {
             -- Config moved to its own lua file
         },
+        explorer = {
+            enabled = false,
+        },
         git = { enabled = true },
         gitbrowse = { enabled = true },
 
@@ -27,7 +30,7 @@ return {
         input = { enabled = true },
         image = { enabled = false },
         notifier = {
-            height = { min = 1, max = 0.5 },
+            -- height = { min = 1, max = 0.5 },
             padding = true,
             sort = { "added" }, -- Sort only by time
             style = "compact",
@@ -61,6 +64,14 @@ return {
         toggle = { enabled = true },
         words = {
             modes = { "n", "c" },
+        },
+
+        styles = {
+            notifications = {
+                wo = {
+                    wrap = true,
+                },
+            },
         },
     },
 

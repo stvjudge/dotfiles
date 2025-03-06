@@ -15,7 +15,6 @@ return {
             zindex = 200,
         },
     },
-
     cmd = "Trouble",
     keys = {
         { "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
