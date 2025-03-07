@@ -2,7 +2,6 @@
 aws-cli
 base
 base-devel
-bash-language-server
 docker
 docker-buildx
 docker-compose
@@ -27,6 +26,7 @@ python
 python-pip
 ripgrep
 selene
+shellcheck-bin
 stow
 sudo
 tree
@@ -37,6 +37,7 @@ which
 yay-bin
 yay-bin-debug
 yazi
+zellij
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
