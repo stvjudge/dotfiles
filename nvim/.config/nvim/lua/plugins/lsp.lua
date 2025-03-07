@@ -23,6 +23,7 @@ return {
             "python",
             "go",
             "sh",
+            "bash",
             "toml",
             "yaml",
             "yaml.docker-compose",
@@ -98,6 +99,18 @@ return {
                         on_attach = function()
                             -- Additional on_attach logic
                         end,
+                    })
+                end,
+                -- Bash lang server
+                ["bashls"] = function()
+                    lspconfig.bashls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            bashIde = {
+                                -- Disable shellcheck in bash-language-server. It conflicts with linter settings.
+                                shellcheckPath = "",
+                            },
+                        },
                     })
                 end,
 
