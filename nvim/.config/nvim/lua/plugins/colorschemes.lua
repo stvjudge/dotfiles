@@ -19,4 +19,7 @@ return {
         lazy = false,
         -- opts = {},
     },
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
 }
