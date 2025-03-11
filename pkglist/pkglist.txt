@@ -28,6 +28,7 @@ python-pip
 ripgrep
 selene
 shellcheck-bin
+sops
 stow
 sudo
 tree
