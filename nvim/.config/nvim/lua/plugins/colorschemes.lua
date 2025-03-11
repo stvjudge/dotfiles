@@ -1,4 +1,4 @@
-local g = vim.g
+-- local g = vim.g
 return {
     {
         "f4z3r/gruvbox-material.nvim",
