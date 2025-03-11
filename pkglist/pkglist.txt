@@ -10,6 +10,7 @@ fzf
 gcc
 git
 github-cli
+go
 helm
 jq
 k9s
