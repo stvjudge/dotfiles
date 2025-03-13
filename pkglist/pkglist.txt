@@ -2,6 +2,9 @@
 aws-cli
 base
 base-devel
+bats
+bats-assert
+bats-support
 docker
 docker-buildx
 docker-compose
