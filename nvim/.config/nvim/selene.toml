@@ -1,9 +1,9 @@
-std = "vim"
+std = "lua51+neovim"
 
-[lints]
-lowercase_global="allow"
-mixed_table="allow"
-unused_variable="allow"
+[rules]
+lowercase_global = "allow"
+mixed_table = "allow"
+unused_variable = "allow"
 
 [globals]
-Snacks=true
+Snacks = true

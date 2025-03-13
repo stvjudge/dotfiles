@@ -12,12 +12,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- Start terminal in insert mode
--- vim.api.nvim_create_autocmd("TermOpen", {
---     pattern = "*",
---     command = "startinsert | set winfixheight",
--- })
-
 -- Folding
 vim.api.nvim_create_autocmd({ "FileType" }, {
     callback = function()

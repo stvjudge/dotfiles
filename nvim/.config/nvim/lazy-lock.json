@@ -1,4 +1,5 @@
 {
+  "Cloak": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "auto-pandoc.nvim": { "branch": "main", "commit": "11d007dcab1dd4587bfca175e18b6017ff4ad1dc" },
   "base16-nvim": { "branch": "master", "commit": "3f13e15c53ea2aaf79c24ceab725309d87f0619c" },
