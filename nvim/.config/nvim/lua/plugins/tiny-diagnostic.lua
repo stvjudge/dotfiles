@@ -3,6 +3,7 @@
 return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
+    -- enabled = false,
     priority = 999, -- Plugin needs to be loaded first
 
     opts = {
