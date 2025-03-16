@@ -8,6 +8,7 @@ return {
     -- LSP servers
     opts = {
         servers = {
+            -- LUA
             lua_ls = {
                 settings = {
                     Lua = {
@@ -31,6 +32,21 @@ return {
                     },
                 },
             },
+            -- YAML
+            -- yamlls = {
+            --     settings = {
+            --         yaml = {
+            --             schemaStore = {
+            --                 enable = false,
+            --                 url = "https://www.schemastore.org/api/json/catalog.json",
+            --             },
+            --             schemas = require("schemastore").yaml.schemas(),
+            --             validate = true,
+            --             completion = true,
+            --             hover = true,
+            --         },
+            --     },
+            -- },
         },
     },
 
@@ -54,7 +70,7 @@ return {
 
         -- Diagnostic config
         vim.diagnostic.config({
-            virtual_text = true,
+            virtual_text = false,
             severity_sort = true,
         })
     end,
