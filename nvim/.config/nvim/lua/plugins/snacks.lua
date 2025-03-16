@@ -7,69 +7,109 @@ return {
     ---@module 'snacks'
     ---@type snacks.Config
     opts = {
-        animate = { enabled = false },
-        bigfile = {
-            size = 1 * 1024 * 1024, -- 1 MB
-            notify = true,
-        },
+        bigfile = { enabled = true },
+        bufdelete = { enabled = true },
+        git = { enabled = true },
+        gitbrowse = { enabled = true },
         dashboard = {
             -- Config moved to its own lua file
         },
-        explorer = {
-            enabled = false,
-        },
-        git = { enabled = true },
-        gitbrowse = { enabled = true },
-
-        indent = {
-            enabled = true,
-            chunk = {
-                enabled = true,
-            },
-        },
+        indent = { enabled = true, only_current = true },
+        notifier = { enabled = true },
+        rename = { enabled = true },
+        words = { enabled = true },
+        scroll = { enabled = true },
         input = { enabled = true },
-        image = { enabled = false },
-        notifier = {
-            -- height = { min = 1, max = 0.5 },
-            padding = true,
-            sort = { "added" }, -- Sort only by time
-            style = "compact",
-            timeout = 6000,
-            top_down = true,
-            width = { min = 12, max = 0.3 },
+        statuscolumn = { 
+            enabled = true,
+            left = { "sign", "mark" },
+            right = { "git" },
+        },
+        styles = {
+            blame_line = { border = 'none' },
+            notification = { border = 'none' },
+            notification_history = { border = 'none' },
+            input = { relative = 'cursor' },
         },
         picker = {
-            layout = {
-                fullscreen = false,
-                cycle = true,
-                preset = function()
-                    return vim.o.columns >= 120 and "default" or "vertical"
-                end,
-            },
-            sources = { -- Configure individual pickers
+            sources = {
                 files = {
                     hidden = true,
                 },
-                notifications = {
-                    layout = "ivy_split",
+            },
+            layout = {
+                preset = 'ivy',
+                layout = {
+                    backdrop = 70,
                 },
             },
-        },
-        quickfile = { enabled = true },
-        scope = { enabled = true },
-        scratch = { enabled = false },
-        scroll = { enabled = true },
-        statuscolumn = { enabled = true },
-        terminal = { enabled = false },
-        toggle = { enabled = true },
-        words = {
-            modes = { "n", "c" },
-        },
+            ui_select = true, -- replace `vim.ui.select` with the snacks picker
+            win = {
+                input = {
+                    keys = {
+                        ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+                    },
+                },
+            },
+            icons = {
+                ui = {
+                    ignored = ' ',
+                    hidden = ' ',
+                    follow = '󰭔 ',
+                },
+                git = {
+                    enabled = true, -- show git icons
+                    commit = '󰜘 ', -- used by git log
+                    staged = '● ', -- staged changes. always overrides the type icons
+                    added = ' ',
+                    deleted = ' ',
+                    ignored = ' ',
+                    modified = '○ ',
+                    renamed = '󰑕 ',
+                    unmerged = ' ',
+                    untracked = ' ',
+                },
+                kinds = {
+                    Control = ' ',
+                    Collapsed = ' ',
+                    Copilot = ' ',
+                    Key = ' ',
+                    Namespace = '󰦮 ',
+                    Null = ' ',
+                    Number = '󰎠 ',
+                    Object = ' ',
+                    Package = ' ',
+                    String = ' ',
+                    Unknown = ' ',
 
-        styles = {
-            notifications = {
-                wo = {
-                    wrap = true,
+                    -- copy from cmp
+                    Text = '',
+                    Method = '󰊕',
+                    Function = '󰊕',
+                    Constructor = '',
+                    Field = '󰜢',
+                    Variable = '',
+                    Class = '',
+                    Interface = '',
+                    Module = '',
+                    Property = '',
+                    Unit = '',
+                    Value = '',
+                    Enum = '',
+                    Keyword = '󱕴',
+                    Snippet = '',
+                    Color = '',
+                    File = '',
+                    Reference = '',
+                    Folder = '',
+                    EnumMember = '',
+                    Constant = '󰏿',
+                    Struct = '',
+                    Event = '',
+                    Operator = '',
+                    TypeParameter = '',
+                    Boolean = ' ',
+                    Array = ' ',
                 },
             },
         },

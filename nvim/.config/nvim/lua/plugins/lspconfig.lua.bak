@@ -1,0 +1,174 @@
+---@module "lazy"
+---@type LazySpec
+return {
+    {
+        "folke/neoconf.nvim",
+        cmd = "NeoConf",
+        opts = {},
+    },
+
+    -- Nvim LSP config
+    {
+        "neovim/nvim-lspconfig",
+        priority = 100,
+        dependencies = {
+            "b0o/schemastore.nvim",
+            "saghen/blink.cmp",
+        },
+
+        config = function()
+            ---@diagnostic disable-next-line: unused-local
+            local lspconfig = require("lspconfig")
+            local lsp_utils = require("config.lsp")
+            local schemastore = require("schemastore")
+
+            -- general LSP config
+            vim.lsp.handlers["textDocument/publishDiagnostics"] =
+                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+                    underline = true,
+                    update_in_insert = true,
+                    virtual_text = false,
+                    signs = true,
+                })
+
+            -- show icons in the column
+            local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
+            vim.fn.sign_define("LightBulbSign", {
+                text = "󰛩",
+                texthl = "LspDiagnosticsDefaultInformation",
+                numhl = "LspDiagnosticsDefaultInformation",
+            })
+
+            -- diagnostics
+            vim.diagnostic.config({
+                severity_sort = true,
+            })
+            -- Bash lang server
+            lspconfig.bashls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+                settings = {
+                    bashIde = {
+                        -- Disable shellcheck in bash-language-server. It conflicts with linter settings.
+                        shellcheckPath = "",
+                    },
+                },
+            })
+
+            -- Dockerfile lang server
+            lspconfig.dockerls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+                settings = {},
+            })
+
+            -- Docker-compose lang server
+            lspconfig.docker_compose_language_service.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+            })
+
+            -- Lua lang server
+            local lua_runtime = {
+                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            }
+            for _, v in pairs(vim.api.nvim_get_runtime_file('', true)) do
+                lua_runtime[v] = true
+            end
+            lspconfig.lua_ls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+                settings = {
+                    Lua = {
+                        format = {
+                            enabled = false,
+                            defaultConfig = {
+                                indent_style = "space",
+                            },
+                        },
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = { "vim", "Snacks" },
+                            disable = { "inject-field" },
+                        },
+                        workspace = {
+                            library = lua_runtime,
+                            checkThirdParty = false,
+                        },
+                        telemetry = {
+                            enabled = false,
+                        },
+                    },
+                },
+            })
+
+            -- JSON lang server
+            lspconfig.jsonls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+                settings = {
+                    json = {
+                        schemas = schemastore.json.schemas(),
+                        validate = { enable = true },
+                    },
+                },
+            })
+
+            -- YAML lang server
+            lspconfig.yamlls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            enable = false,
+                            url = "https://www.schemastore.org/api/json/catalog.json",
+                        },
+                        schemas = schemastore.yaml.schemas(),
+                        format = {
+                            eable = true,
+                        },
+                        validate = true,
+                        completion = true,
+                        hover = true,
+                    },
+                },
+            })
+
+            -- GO lang server
+            lspconfig.gopls.setup({
+                on_attach = lsp_utils.on_attach,
+                capabilities = lsp_utils.capabilities(),
+            })
+        end,
+        -- stylua: ignore start
+        keys = {
+            { "<leader>li", ":LspInfo<CR>",                                  desc = "LSP information" },
+            { "<leader>lr", ":lua vim.lsp.buf.rename()<CR>",                 desc = "LSP symbol rename" },
+            { "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>",         desc = "LSP signature help" },
+            { "<leader>lk", ":lua vim.lsp.buf.signature_help()<CR>",         desc = "LSP signature help" },
+            { "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", desc = "LSP format" },
+            { "<leader>ld", ":lua vim.diagnostic.open_float()<CR>",          desc = "Open diagnostics" },
+            { "<leader>lq", ":lua vim.diagnostic.setloclist()<CR>",          desc = "Quickfix diagnostics" },
+            { "<leader>la", ":FzfLua lsp_code_actions<CR>",                  desc = "LSP code actions" },
+            { "K",          ":lua vim.lsp.buf.hover()<CR>",                  desc = "LSP Hover" },
+            { "gD",         ":lua vim.lsp.buf.declaration()<CR>",            desc = "LSP goto declaration" },
+            { "gd",         ":FzfLua lsp_definitions<cr>",                   desc = "LSP goto definition" },
+            { "gr",         ":FzfLua lsp_references<cr>",                    desc = "LSP goto references" },
+            { "gi",         ":FzfLua lsp_implementations<cr>",               desc = "LSP goto implementations" },
+            { "go",         ":FzfLua lsp_document_symbols<CR>",              desc = "LSP find document symbols" },
+            { "gO",         ":FzfLua lsp_workspace_symbols<CR>",             desc = "LSP find workspace symbols" },
+            { "g[",         ":lua vim.diagnostic.goto_prev()<CR>",           desc = "goto prev diagnostic" },
+            { "g]",         ":lua vim.diagnostic.goto_next()<CR>",           desc = "goto next diagnostic" },
+        },
+        -- stylua: ignore end
+    },
+}

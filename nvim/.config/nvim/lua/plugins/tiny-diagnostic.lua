@@ -3,22 +3,30 @@
 return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
-    priority = 999, -- Plugin needs to be loaded first
+    enabled = false,
 
-    opts = {
-        vim.diagnostic.config({ virtual_text = false }),
-        preset = "classic",
-        signs = {
-            diag = "●",
-            arrow = "  ",
-            left = "",
-            right = "",
-        },
-        options = {
-            show_source = true,
-            multiple_diag_under_cursoer = true,
-            multilines = true,
-            show_all_diags_on_cursorline = true,
-        },
-    },
+    config = function()
+        require("tiny-inline-diagnostic").setup({
+            preset = "classic",
+
+            transparent_bg = true,
+            hi = {
+                mixing_color = "None",
+            },
+
+            signs = {
+                diag = "●",
+                arrow = "  ",
+                left = "",
+                right = "",
+            },
+            options = {
+                show_source = true,
+                multiple_diag_under_cursoer = true,
+                multilines = true,
+                show_all_diags_on_cursorline = true,
+            },
+        })
+    end,
+    -- vim.diagnostic.config({ virtual_text = false }),
 }

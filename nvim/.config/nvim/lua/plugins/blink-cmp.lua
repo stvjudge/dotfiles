@@ -1,110 +1,185 @@
 return {
-    {
-        "saghen/blink.compat",
-        version = "*",
-        lazy = true,
-        opts = {},
+    "saghen/blink.cmp",
+    version = "*",
+    event = "InsertEnter",
+    dependencies = {
+        "rafamadriz/friendly-snippets", -- snippets for many languages
+        "xzbdmw/colorful-menu.nvim", -- adds highlights to the auto-complete options
+        "L3MON4D3/LuaSnip",
     },
+    config = function()
+        require("colorful-menu").setup({})
+        local disabled_filetypes = { "minifiles" }
 
-    {
-        "saghen/blink.cmp",
-        version = "*",
-        event = { "InsertEnter" },
-
-        dependencies = {
-            "L3MON4D3/LuaSnip",
-            "rafamadriz/friendly-snippets",
-            "onsails/lspkind.nvim",
-            "moyiz/blink-emoji.nvim",
-        },
-        ---@module "blink.cmp"
-        ---@type blink.cmp.Config
-        opts = {
+        require("blink.cmp").setup({
+            -- Disable for some filetypes
+            enabled = function()
+                return vim.bo.buftype ~= "prompt"
+                    and vim.b.completion ~= false
+                    and not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
+            end,
+            signature = { enabled = true },
             sources = {
-                default = { "lazydev", "lsp", "buffer", "path", "snippets", "markdown" },
+                default = { "lazydev", "lsp", "path", "snippets", "buffer" },
                 providers = {
-                    markdown = {
-                        name = "RMD",
-                        module = "render-markdown.integ.blink",
-                        fallbacks = { "lsp" },
-                    },
-
                     buffer = {
-                        min_keyword_length = 5,
                         max_items = 5,
                     },
-
-                    lsp = {
-                        name = "LSP",
-                        min_keyword_length = 2,
-                        module = "blink.cmp.sources.lsp",
-                    },
-
-                    snippets = {
-                        name = "Snippets",
-                        module = "blink.cmp.sources.snippets",
-                        min_keyword_length = 2,
-                        score_offset = 2,
-                    },
-
-                    path = {
-                        name = "Path",
-                        module = "blink.cmp.sources.path",
-                        min_keyword_length = 0,
-                        score_offset = -1,
-
-                        opts = {
-                            show_hidden_files_by_default = false,
-                            get_cwd = vim.uv.cwd,
-                        },
-                    },
-
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
-                        score_offset = 99,
+                        score_offset = 100,
+                    },
+                    lsp = {
+                        name = "LSP",
+                        module = "blink.cmp.sources.lsp",
+                        opts = {},
+                    },
+                    snippets = {
+                        name = "Snippets",
+                        module = "blink.cmp.sources.snippets",
+                        score_offset = 2,
+                    },
+                    path = {
+                        name = "Path",
+                        module = "blink.cmp.sources.path",
+                        score_offset = -1,
+                        opts = {
+                            show_hidden_files_by_default = true,
+                            get_cwd = vim.uv.cwd,
+                        },
                     },
                 },
             },
-
-            keymap = { preset = "enter" },
-
-            cmdline = { enabled = false },
-
-            appearance = {
-                highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
-                use_nvim_cmp_as_default = true,
-                nerd_font_variant = "mono",
-            },
-
-            snippets = { preset = "luasnip" },
-
             completion = {
-                ghost_text = { enabled = false },
+                ghost_text = { enabled = true },
                 list = {
                     selection = {
                         preselect = true,
                         auto_insert = false,
                     },
                 },
-                menu = {
-                    auto_show = true,
-                    draw = {
-                        columns = {
-                            { "label", "label_description", gap = 1 },
-                            { "kind_icon", "kind", gap = 1 },
-                        },
-                        treesitter = { "lsp" },
-                    },
-                },
-
                 documentation = {
                     auto_show = true,
-                    auto_show_delay_ms = 200,
-                    treesitter_highlighting = true,
+                },
+                trigger = {
+                    show_in_snippet = false,
+                },
+                menu = {
+                    auto_show = function(ctx)
+                        return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+                    end,
+                    draw = {
+                        treesitter = { "lsp" },
+                        columns = {
+                            { "kind_icon", gap = 1 },
+                            { "label", gap = 3 },
+                            { "item_idx", gap = 1 },
+                            { "source_name" },
+                        },
+                        components = {
+                            label = {
+                                text = function(ctx)
+                                    return require("colorful-menu").blink_components_text(ctx)
+                                end,
+                                highlight = function(ctx)
+                                    return require("colorful-menu").blink_components_highlight(ctx)
+                                end,
+                            },
+                            item_idx = {
+                                text = function(ctx)
+                                    return ctx.idx == 10 and "0" or ctx.idx >= 10 and " " or tostring(ctx.idx)
+                                end,
+                                highlight = "BlinkCmpItemIdx",
+                            },
+                            source_name = {
+                                text = function(ctx)
+                                    return "[" .. ctx.source_name .. "]"
+                                end,
+                            },
+                        },
+                    },
                 },
             },
-        },
-        opts_extend = { "sources.default" },
-    },
+            fuzzy = {
+                sorts = { "exact", "score", "sort_text", "kind", "label" },
+            },
+            cmdline = {
+                completion = {
+                    list = {
+                        selection = {
+                            preselect = false,
+                            auto_insert = false,
+                        },
+                    },
+                    menu = {
+                        auto_show = true,
+                    },
+                },
+                keymap = { -- https://github.com/neovim/neovim/issues/21585
+                    ["<C-space>"] = { "show" },
+                    ["<CR>"] = { "accept", "fallback" },
+                    ["<Tab>"] = { "select_next", "fallback" },
+                    ["<S-Tab>"] = { "select_prev", "fallback" },
+                    ["<Esc>"] = {
+                        "cancel",
+                        function()
+                            if vim.fn.getcmdtype() ~= "" then
+                                vim.api.nvim_feedkeys(
+                                    vim.api.nvim_replace_termcodes("<C-c>", true, true, true),
+                                    "n",
+                                    true
+                                )
+                                return
+                            end
+                        end,
+                    },
+                },
+            },
+
+            keymap = { preset = "enter" },
+
+            snippets = { preset = "luasnip" },
+
+            appearance = {
+                highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
+                -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+                -- Useful for when your theme doesn't support blink.cmp
+                -- Will be removed in a future release
+                use_nvim_cmp_as_default = true,
+                -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+                -- Adjusts spacing to ensure icons are aligned
+                nerd_font_variant = "mono",
+                kind_icons = {
+                    Text = "",
+                    Method = "󰊕",
+                    Function = "󰊕",
+                    Constructor = "",
+                    Field = "󰜢",
+                    Variable = "",
+                    Class = "",
+                    Interface = "",
+                    Module = "",
+                    Property = "",
+                    Unit = "",
+                    Value = "",
+                    Enum = "",
+                    Keyword = "󱕴",
+                    Snippet = "",
+                    Color = "",
+                    File = "",
+                    Reference = "",
+                    Folder = "",
+                    EnumMember = "",
+                    Constant = "󰏿",
+                    Struct = "",
+                    Event = "",
+                    Operator = "",
+                    TypeParameter = "",
+                    Boolean = " ",
+                    Array = " ",
+                },
+            },
+        })
+    end,
 }

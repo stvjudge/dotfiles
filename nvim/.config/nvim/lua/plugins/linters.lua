@@ -3,7 +3,11 @@ local vim = vim
 ---@type LazySpec
 return {
     "mfussenegger/nvim-lint",
-    event = "LspAttach",
+    event = {
+        "BufReadPre",
+        "BufNewFile",
+    },
+
     config = function()
         local lint = require("lint")
 
@@ -26,7 +30,7 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "<leader>cl", function()
+        vim.keymap.set("n", "<leader>l", function()
             lint.try_lint()
         end, { desc = "Trigger linting for current file" })
     end,
