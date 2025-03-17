@@ -10,6 +10,9 @@ return {
         dashboard = {
             enabled = true,
             example = "github",
+            preset = {
+                header = "",
+            },
             sections = {
                 { section = "header" },
                 {

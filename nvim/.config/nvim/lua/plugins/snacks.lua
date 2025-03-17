@@ -26,7 +26,7 @@ return {
             right = { "git" },
         },
         styles = {
-            blame_line = { border = 'none' },
+            blame_line = { border = "none" },
             notification = { border = 'none' },
             notification_history = { border = 'none' },
             input = { relative = 'cursor' },
@@ -117,15 +117,15 @@ return {
 
     keys = {
         -- stylua: ignore start
-        { "<leader>z",       function() Snacks.zen() end,                         desc = "Toggle Zen Mode" },
-        { "<leader>Z",       function() Snacks.zen.zoom() end,                    desc = "Toggle Zoom" },
-        { "<leader>bd",      function() Snacks.bufdelete() end,                   desc = "Delete Buffer" },
-        { "<leader>cR",      function() Snacks.rename.rename_file() end,          desc = "Rename File" },
+        { "<leader>tzm",     function() Snacks.zen() end,                         desc = "[t]oggle [z]en [m]ode" },
+        { "<leader>tZ",      function() Snacks.zen.zoom() end,                    desc = "[t]oggle [Z]oom" },
+        { "<leader>db",      function() Snacks.bufdelete() end,                   desc = "[d]elete [b]uffer" },
+        { "<leader>rf",      function() Snacks.rename.rename_file() end,          desc = "[r]ename [f]ile" },
         { "<leader>gw",      function() Snacks.gitbrowse() end,                   desc = "Git Browse Web" },
         { "<leader>gb",      function() Snacks.git.blame_line() end,              desc = "Git Blame Line" },
-        { "<leader>gf",      function() Snacks.lazygit.log_file() end,            desc = "Lazygit Current File History" },
-        { "<leader>gl",      function() Snacks.lazygit() end,                     desc = "Lazygit" },
-        { "<leader>gL",      function() Snacks.lazygit.log() end,                 desc = "Lazygit Log (cwd)" },
+        { "<leader>lgcfh",   function() Snacks.lazygit.log_file() end,            desc = "[l]azy[g]it [c]urrent [f]ile [h]istory" },
+        { "<leader>lg",      function() Snacks.lazygit() end,                     desc = "[l]azy[g]it" },
+        { "<leader>lgl",     function() Snacks.lazygit.log() end,                 desc = "[l]azy[g]it [l]og (cwd)" },
         { "<leader>un",      function() Snacks.notifier.hide() end,               desc = "Dismiss All Notifications" },
         { "]]",              function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",              mode = { "n", "t" } },
         { "[[",              function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",              mode = { "n", "t" } },

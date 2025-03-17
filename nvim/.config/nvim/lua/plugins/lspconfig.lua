@@ -4,45 +4,83 @@ return {
         { "folke/lazydev.nvim",                 opts = {}, ft = "lua" },
         { "williamboman/mason.nvim",            opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
+        "folke/neoconf.nvim",
         "saghen/blink.cmp",
         "b0o/schemastore.nvim",
     },
 
     config = function()
 
+        local schemastore = require("schemastore")
+        -- Load neoconf
+        require("neoconf").setup()
+
         -- Define LSP servers
         local servers = {
                 -- LUA
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            format = {
-                                enabled = false,
-                                defaultConfig = {
-                                    indent_style = "space",
-                                },
+            lua_ls = {
+                settings = {
+                    Lua = {
+                        format = {
+                            enabled = true,
+                            defaultConfig = {
+                                indent_style = "space",
                             },
-                            diagnostics = {
-                                globals = { "vim", "Snacks" },
-                            },
-                            workspace = {
-                                library = {
-                                    vim.env.VIMRUNTIME,
-                                },
+                        },
+                        diagnostics = {
+                            globals = { "vim", "Snacks" },
+                        },
+                        workspace = {
+                            library = {
+                                vim.env.VIMRUNTIME,
                             },
                         },
                     },
                 },
-                -- BASH
-                bashls = {
-                    settings = {
-                        bashIde = {
-                            -- Disable shellcheck in bashls. Conflicts with linter settings.
-                            shellcheckPath = "",
-                        },
+            },
+            -- BASH
+            bashls = {
+                settings = {
+                    bashIde = {
+                        -- Disable shellcheck in bashls. Conflicts with linter settings.
+                        shellcheckPath = "",
                     },
                 },
-            }
+            },
+            -- DOCKER
+            dockerls = {
+                settings = {},
+            },
+            -- DOCKER COMPOSE
+            docker_compose_language_service = {
+                settings = {},
+            },
+            -- JSON
+            jsonls = {
+                settings = {
+                    json = {
+                        schemas = schemastore.json.schemas(),
+                        validate = { enable = true },
+                    },
+                },
+            },
+            -- YAML
+            yamlls = {
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            enable = false,
+                            url = "",
+                        },
+                        schemas = schemastore.yaml.schemas(),
+                        validate = true,
+                        completion = true,
+                        hover = true,
+                    },
+                },
+            },
+        }
+
         require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
 
         for server, config in pairs(servers) do

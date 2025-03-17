@@ -6,7 +6,7 @@ return {
     dependencies = "echasnovski/mini.icons",
 
     opts = {
-        delay = 300,
+        delay = 500,
         preset = "helix",
         sort = { "alphanum" },
     },
