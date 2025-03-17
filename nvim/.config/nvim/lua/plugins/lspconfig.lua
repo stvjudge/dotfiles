@@ -4,6 +4,7 @@ return {
         { "folke/lazydev.nvim",                 opts = {}, ft = "lua" },
         { "williamboman/mason.nvim",            opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
         "folke/neoconf.nvim",
         "saghen/blink.cmp",
         "b0o/schemastore.nvim",
@@ -16,7 +17,7 @@ return {
         require("neoconf").setup()
 
         -- Define LSP servers
-        local servers = {
+        local lsp_servers = {
                 -- LUA
             lua_ls = {
                 settings = {
@@ -48,13 +49,9 @@ return {
                 },
             },
             -- DOCKER
-            dockerls = {
-                settings = {},
-            },
+            dockerls = {},
             -- DOCKER COMPOSE
-            docker_compose_language_service = {
-                settings = {},
-            },
+            docker_compose_language_service = {},
             -- JSON
             jsonls = {
                 settings = {
@@ -81,9 +78,22 @@ return {
             },
         }
 
-        require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+        local tools = {
+            trivy = {},
+            luacheck = {},
+            shfmt = {},
+        }
 
-        for server, config in pairs(servers) do
+        require("mason-lspconfig").setup({
+            ensure_installed = vim.tbl_keys(lsp_servers),
+        })
+
+        require("mason-tool-installer").setup({
+            ensure_installed = vim.tbl_keys(tools),
+        })
+
+
+        for server, config in pairs(lsp_servers) do
             config.capabilities = require("blink.cmp").get_lsp_capabilities()
             require("lspconfig")[server].setup(config)
         end
