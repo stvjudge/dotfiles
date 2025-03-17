@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/conform.nvim",
-        event = { "BufWritePre" },
+        -- event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         keys = {
             {
@@ -16,7 +16,6 @@ return {
         ---@module "conform"
         ---@type conform.setupOpts
         opts = {
-            -- Default options
             default_format_opts = {
                 lsp_format = "fallback",
             },
@@ -39,7 +38,7 @@ return {
             -- Customize formatters
             formatters = {
                 shftm = {
-                    command = "shftm",
+                    command = "shfmt",
                     prepend_args = { "-i", "2" },
                 },
             },

@@ -1,7 +1,4 @@
 std = "nvim"
 
 [lints]
-mixed_table = "allow"
-
-[globals]
-Snacks = true
+mixed_table="allow"

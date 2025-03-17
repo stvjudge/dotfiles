@@ -11,6 +11,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            { "williamboman/mason.nvim", opts = {} },
             "williamboman/mason-lspconfig.nvim",
             "b0o/schemastore.nvim",
             "saghen/blink.cmp",

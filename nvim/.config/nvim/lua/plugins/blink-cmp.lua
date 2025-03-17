@@ -4,20 +4,14 @@ return {
     event = "InsertEnter",
     dependencies = {
         "rafamadriz/friendly-snippets", -- snippets for many languages
-        "xzbdmw/colorful-menu.nvim", -- adds highlights to the auto-complete options
+        "xzbdmw/colorful-menu.nvim",    -- adds highlights to the auto-complete options
         "L3MON4D3/LuaSnip",
+        { "saghen/blink.compat", version = "*", lazy = true },
     },
     config = function()
         require("colorful-menu").setup({})
-        local disabled_filetypes = { "minifiles" }
-
         require("blink.cmp").setup({
-            -- Disable for some filetypes
-            enabled = function()
-                return vim.bo.buftype ~= "prompt"
-                    and vim.b.completion ~= false
-                    and not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
-            end,
+
             signature = { enabled = true },
             sources = {
                 default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -72,9 +66,9 @@ return {
                     draw = {
                         treesitter = { "lsp" },
                         columns = {
-                            { "kind_icon", gap = 1 },
-                            { "label", gap = 3 },
-                            { "item_idx", gap = 1 },
+                            { "kind_icon",  gap = 1 },
+                            { "label",      gap = 3 },
+                            { "item_idx",   gap = 1 },
                             { "source_name" },
                         },
                         components = {

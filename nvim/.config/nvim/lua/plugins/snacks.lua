@@ -20,7 +20,7 @@ return {
         words = { enabled = true },
         scroll = { enabled = true },
         input = { enabled = true },
-        statuscolumn = { 
+        statuscolumn = {
             enabled = true,
             left = { "sign", "mark" },
             right = { "git" },
@@ -127,8 +127,8 @@ return {
         { "<leader>gl",      function() Snacks.lazygit() end,                     desc = "Lazygit" },
         { "<leader>gL",      function() Snacks.lazygit.log() end,                 desc = "Lazygit Log (cwd)" },
         { "<leader>un",      function() Snacks.notifier.hide() end,               desc = "Dismiss All Notifications" },
-        { "]]",              function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",           mode = { "n", "t" } },
-        { "[[",              function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",           mode = { "n", "t" } },
+        { "]]",              function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",              mode = { "n", "t" } },
+        { "[[",              function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",              mode = { "n", "t" } },
         --
         -- Snacks.picker
         --
@@ -150,7 +150,7 @@ return {
         { "<leader>sb",      function() Snacks.picker.lines() end,                desc = "Buffer Lines" },
         { "<leader>sB",      function() Snacks.picker.grep_buffers() end,         desc = "Grep Open Buffers" },
         { "<leader>sg",      function() Snacks.picker.grep() end,                 desc = "Grep" },
-        { "<leader>sw",      function() Snacks.picker.grep_word() end,            desc = "Visual selection or word", mode = { "n", "x" } },
+        { "<leader>sw",      function() Snacks.picker.grep_word() end,            desc = "Visual selection or word",    mode = { "n", "x" } },
         -- Search
         { '<leader>s"',      function() Snacks.picker.registers() end,            desc = "Registers" },
         { "<leader>sa",      function() Snacks.picker.autocmds() end,             desc = "Autocmds" },
@@ -171,7 +171,7 @@ return {
         { "<leader>fs",      function() Snacks.picker.spelling() end,             desc = "Spelling suggestions" },
         -- LSP
         { "gd",              function() Snacks.picker.lsp_definitions() end,      desc = "Goto Definition" },
-        { "gr",              function() Snacks.picker.lsp_references() end,       nowait = true,                     desc = "References" },
+        { "gr",              function() Snacks.picker.lsp_references() end,       nowait = true,                        desc = "References" },
         { "gI",              function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
         { "gy",              function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
         { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,          desc = "LSP Symbols" },

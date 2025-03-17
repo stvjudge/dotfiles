@@ -19,24 +19,26 @@ return {
                 },
                 check_outdated_packages_on_open = true,
                 border = "rounded",
-                width = 0.9,
-                height = 0.9,
             },
         })
 
         mason_lspconfig.setup({
-            ensure_installed = {
-                "bashls",
-                "docker_composer_language_service",
-                "dockerls",
-                "jsonls",
-                "taplo",
-                "lua_ls",
-                "vimls",
-                "yamlls",
-                "marksman",
+            -- ensure_installed = {
+            --     "bashls",
+            --     "docker_composer_language_service",
+            --     "dockerls",
+            --     "jsonls",
+            --     "taplo",
+            --     "lua_ls",
+            --     "vimls",
+            --     "yamlls",
+            --     "marksman",
+            -- },
+            -- automatic_installation = false,
+            run_on_start = true,
+            integration = {
+                ["mason-lspconfig"] = true,
             },
-            automatic_installation = true,
         })
 
         mason_tool_installer.setup({
