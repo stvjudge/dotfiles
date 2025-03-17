@@ -34,7 +34,7 @@ return {
         ft = { "markdown", "norg" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         ---@module "render-markdown"
-        opts = {},
+        -- opts = {},
     },
 
     {

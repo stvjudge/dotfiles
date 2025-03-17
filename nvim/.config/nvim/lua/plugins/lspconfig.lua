@@ -22,9 +22,6 @@ return {
                                     indent_style = "space",
                                 },
                             },
-                            -- runtime = {
-                            --     version = "LuaJIT",
-                            -- },
                             diagnostics = {
                                 globals = { "vim", "Snacks" },
                             },
@@ -36,21 +33,6 @@ return {
                         },
                     },
                 },
-                -- YAML
-                -- yamlls = {
-                --     settings = {
-                --         yaml = {
-                --             schemaStore = {
-                --                 enable = false,
-                --                 url = "https://www.schemastore.org/api/json/catalog.json",
-                --             },
-                --             schemas = require("schemastore").yaml.schemas(),
-                --             validate = true,
-                --             completion = true,
-                --             hover = true,
-                --         },
-                --     },
-                -- },
                 -- BASH
                 bashls = {
                     settings = {
