@@ -27,9 +27,12 @@ return {
         },
         styles = {
             blame_line = { border = "none" },
-            notification = { border = 'none' },
-            notification_history = { border = 'none' },
-            input = { relative = 'cursor' },
+            notification = {
+                wo = { wrap = true },
+                border = "none",
+            },
+            notification_history = { border = "none" },
+            input = { relative = "cursor" },
         },
         picker = {
             sources = {
@@ -38,7 +41,7 @@ return {
                 },
             },
             layout = {
-                preset = 'ivy',
+                preset = "ivy",
                 layout = {
                     backdrop = 70,
                 },
@@ -47,71 +50,71 @@ return {
             win = {
                 input = {
                     keys = {
-                        ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+                        ["<Esc>"] = { "close", mode = { "n", "i" } },
                     },
                 },
             },
-            icons = {
-                ui = {
-                    ignored = ' ',
-                    hidden = ' ',
-                    follow = '󰭔 ',
-                },
-                git = {
-                    enabled = true, -- show git icons
-                    commit = '󰜘 ', -- used by git log
-                    staged = '● ', -- staged changes. always overrides the type icons
-                    added = ' ',
-                    deleted = ' ',
-                    ignored = ' ',
-                    modified = '○ ',
-                    renamed = '󰑕 ',
-                    unmerged = ' ',
-                    untracked = ' ',
-                },
-                kinds = {
-                    Control = ' ',
-                    Collapsed = ' ',
-                    Copilot = ' ',
-                    Key = ' ',
-                    Namespace = '󰦮 ',
-                    Null = ' ',
-                    Number = '󰎠 ',
-                    Object = ' ',
-                    Package = ' ',
-                    String = ' ',
-                    Unknown = ' ',
-
-                    -- copy from cmp
-                    Text = '',
-                    Method = '󰊕',
-                    Function = '󰊕',
-                    Constructor = '',
-                    Field = '󰜢',
-                    Variable = '',
-                    Class = '',
-                    Interface = '',
-                    Module = '',
-                    Property = '',
-                    Unit = '',
-                    Value = '',
-                    Enum = '',
-                    Keyword = '󱕴',
-                    Snippet = '',
-                    Color = '',
-                    File = '',
-                    Reference = '',
-                    Folder = '',
-                    EnumMember = '',
-                    Constant = '󰏿',
-                    Struct = '',
-                    Event = '',
-                    Operator = '',
-                    TypeParameter = '',
-                    Boolean = ' ',
-                    Array = ' ',
-                },
-            },
+            -- icons = {
+            --     ui = {
+            --         ignored = " ",
+            --         hidden = " ",
+            --         follow = "󰭔 ",
+            --     },
+            --     git = {
+            --         enabled = true, -- show git icons
+            --         commit = "󰜘 ", -- used by git log
+            --         staged = "● ", -- staged changes. always overrides the type icons
+            --         added = " ",
+            --         deleted = " ",
+            --         ignored = " ",
+            --         modified = "○ ",
+            --         renamed = "󰑕 ",
+            --         unmerged = " ",
+            --         untracked = " ",
+            --     },
+            --     kinds = {
+            --         Control = " ",
+            --         Collapsed = " ",
+            --         Copilot = " ",
+            --         Key = " ",
+            --         Namespace = "󰦮 ",
+            --         Null = " ",
+            --         Number = "󰎠 ",
+            --         Object = " ",
+            --         Package = " ",
+            --         String = " ",
+            --         Unknown = " ",
+            --
+            --         -- copy from cmp
+            --         Text = "",
+            --         Method = "󰊕",
+            --         Function = "󰊕",
+            --         Constructor = "",
+            --         Field = "󰜢",
+            --         Variable = "",
+            --         Class = "",
+            --         Interface = "",
+            --         Module = "",
+            --         Property = "",
+            --         Unit = "",
+            --         Value = "",
+            --         Enum = "",
+            --         Keyword = "󱕴",
+            --         Snippet = "",
+            --         Color = "",
+            --         File = "",
+            --         Reference = "",
+            --         Folder = "",
+            --         EnumMember = "",
+            --         Constant = "󰏿",
+            --         Struct = "",
+            --         Event = "",
+            --         Operator = "",
+            --         TypeParameter = "",
+            --         Boolean = " ",
+            --         Array = " ",
+            --     },
+            -- },
         },
     },
 

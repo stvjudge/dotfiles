@@ -13,4 +13,8 @@ return {
             restriction_mode = "hint",
         },
     },
+    {
+        "brenoprata10/nvim-highlight-colors",
+        opts = {},
+    },
 }

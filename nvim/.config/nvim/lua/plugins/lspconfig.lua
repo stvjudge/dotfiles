@@ -1,8 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        { "folke/lazydev.nvim",                 opts = {}, ft = "lua" },
-        { "williamboman/mason.nvim",            opts = {} },
+        { "folke/lazydev.nvim", opts = {}, ft = "lua" },
+        { "williamboman/mason.nvim", opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         "folke/neoconf.nvim",
@@ -11,14 +11,28 @@ return {
     },
 
     config = function()
-
         local schemastore = require("schemastore")
         -- Load neoconf
         require("neoconf").setup()
 
+        -- Some Mason options
+        require("mason").setup({
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
+                },
+                check_outdated_packages_on_open = true,
+                border = "rounded",
+                width = 0.9,
+                height = 0.9,
+            },
+        })
+
         -- Define LSP servers
         local lsp_servers = {
-                -- LUA
+            -- LUA
             lua_ls = {
                 settings = {
                     Lua = {
@@ -79,9 +93,10 @@ return {
         }
 
         local tools = {
+            prettier = {},
             trivy = {},
-            luacheck = {},
             shfmt = {},
+            stylua = {},
         }
 
         require("mason-lspconfig").setup({
@@ -91,7 +106,6 @@ return {
         require("mason-tool-installer").setup({
             ensure_installed = vim.tbl_keys(tools),
         })
-
 
         for server, config in pairs(lsp_servers) do
             config.capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -114,5 +128,5 @@ return {
             virtual_text = false,
             severity_sort = true,
         })
-    end
+    end,
 }
