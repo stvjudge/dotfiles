@@ -19,7 +19,7 @@ alias dcdrma="docker compose down --rm all"
 # Shell aliases
 alias dot="cd ~/dotfiles"
 alias lg="lazygit"
-alias ll="ls -lha --color"
+alias ll="ls -lha --color -v"
 alias ..="cd .."
 alias ...="cd ~"
 alias c="clear"
