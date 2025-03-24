@@ -94,9 +94,10 @@ return {
 
         local tools = {
             prettier = {},
-            trivy = {},
+            -- trivy = {},
             shfmt = {},
             stylua = {},
+            hadolint = {},
         }
 
         require("mason-lspconfig").setup({
