@@ -11,7 +11,6 @@ return {
     config = function()
         require("colorful-menu").setup({})
         require("blink.cmp").setup({
-
             signature = { enabled = true },
             sources = {
                 default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -46,7 +45,7 @@ return {
                 },
             },
             completion = {
-                ghost_text = { enabled = true },
+                ghost_text = { enabled = false },
                 list = {
                     selection = {
                         preselect = true,

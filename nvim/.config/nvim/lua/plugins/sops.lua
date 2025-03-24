@@ -10,8 +10,8 @@ return {
                 awsProfile = "AWS_PROFILE",
             },
             keys = {
-                { "<leader>ef", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
-                { "<leader>df", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
+                { "<leader>cef", vim.cmd.SopsEncrypt, desc = "[e]ncrypt [f]ile" },
+                { "<leader>cdf", vim.cmd.SopsDecrypt, desc = "[d]ecrypt [f]ile" },
             },
         },
     },
