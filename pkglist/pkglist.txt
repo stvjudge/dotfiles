@@ -17,6 +17,7 @@ github-cli
 go
 helm
 jq
+just
 k9s
 kubectx
 lazydocker
