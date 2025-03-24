@@ -13,12 +13,12 @@ return {
 
         lint.linters_by_ft = {
             json = { "jsonlint" },
-            go = { "codespell", "golangcilint" },
+            go = { "golangcilint" },
             lua = { "selene" }, -- Install selene with system pkg manager instead of Mason
             python = { "ruff" },
             sh = { "bash", "shellcheck" },
             yaml = { "yamllint" },
-            dockerfile = { "trivy" },
+            dockerfile = { "hadolint" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

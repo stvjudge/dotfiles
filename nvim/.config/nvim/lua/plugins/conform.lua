@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/conform.nvim",
-        event = { "BufWritePre" },
+        event = { "BufReadPre", "BufNewFile", "InsertLeave" },
         cmd = { "ConformInfo" },
         keys = {
             {
@@ -25,10 +25,10 @@ return {
                 sh = { "shfmt" },
                 bash = { "shfmt" },
                 zsh = { "shfmt" },
-                json = { "prettierd", "prettier", stop_after_first = true },
+                json = { "prettier" },
                 yaml = { "yamlfmt" },
-                go = { "gofmt" },
-                markdown = { "prettierd", "prettier", stop_after_first = true },
+                go = { "goimports", "gofmt" },
+                markdown = { "prettier" },
             },
             -- Format on save event
             -- format_on_save = {
