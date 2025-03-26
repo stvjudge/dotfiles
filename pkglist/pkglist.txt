@@ -29,6 +29,7 @@ man-db
 neovim
 npm
 oh-my-posh
+oh-my-posh-debug
 openssh
 pandoc-bin
 python-pip
