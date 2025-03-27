@@ -127,6 +127,18 @@ return {
                     directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
                     semanticTokens = true,
                 },
+                -- HELM
+                helm_ls = {
+                    settings = {
+                        ["helm-ls"] = {
+                            yamlls = {
+                                path = "yaml-language-server",
+                            },
+                        },
+                    },
+                },
+                -- JINJA
+                jinja_ls = {},
             },
         }
 
@@ -137,10 +149,13 @@ return {
             stylua = {},
             hadolint = {},
             gofumpt = {},
+            snyk = {},
+            djlint = {},
         }
 
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(lsp_servers),
+            automatic_installation = true,
         })
 
         require("mason-tool-installer").setup({

@@ -13,3 +13,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
     desc = "Disable New Line Comment",
 })
+
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+--     pattern = "deployment.yaml",
+--     callback = function()
+--         vim.opt_local.filetype = "helm"
+--     end,
+-- })

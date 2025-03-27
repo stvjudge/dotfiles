@@ -17,4 +17,7 @@ return {
         "brenoprata10/nvim-highlight-colors",
         opts = {},
     },
+    {
+        "towolf/vim-helm",
+    },
 }
