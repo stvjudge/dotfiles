@@ -68,4 +68,10 @@ return {
         lazy = true,
         ft = { "lua", "bash", "python" },
     },
+    {
+        "IndianBoy42/tree-sitter-just",
+        lazy = true,
+        ft = { "justfile" },
+        opts = {},
+    },
 }
