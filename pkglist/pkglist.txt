@@ -3,7 +3,6 @@ aws-cli
 base
 base-devel
 bash-completion
-bash-language-server
 bats
 bats-assert
 bats-support
@@ -24,7 +23,6 @@ k9s
 kubectx
 lazydocker
 lazygit
-lua-language-server
 luarocks
 man-db
 neovim
@@ -45,10 +43,8 @@ tmux
 tree
 trivy
 unzip
-vscode-langservers-extracted
 wget
 xdg-utils
-yaml-language-server
 yay
 yay-debug
 yazi
