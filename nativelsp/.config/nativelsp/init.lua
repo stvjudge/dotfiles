@@ -1,3 +1,4 @@
+-- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -16,8 +17,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Load global options before lazy.nvim
 require("config.options")
 
+-- Load lazy.nvim
 require("lazy").setup("plugins", {
     checker = {
         enabled = true,
@@ -40,7 +43,7 @@ require("lazy").setup("plugins", {
     },
 })
 
+-- Load autocmds, and lsp configs
 require("config.autocmds")
 -- require("config.whichkey")
--- require("config.autocmp")
 require("config.lsp")
