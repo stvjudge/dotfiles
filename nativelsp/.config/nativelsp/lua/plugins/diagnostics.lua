@@ -1,11 +1,11 @@
 return {
     {
         enabled = false,
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy", -- Or `LspAttach`
-    priority = 1000, -- needs to be loaded in first
-    config = function()
-        require('tiny-inline-diagnostic').setup({
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy", -- Or `LspAttach`
+        priority = 1000, -- needs to be loaded in first
+        config = function()
+            require("tiny-inline-diagnostic").setup({
                 -- transparent_bg = true,
                 preset = "modern",
                 options = {
@@ -18,8 +18,8 @@ return {
                     multiple_diag_under_cursor = true,
                     show_all_diags_on_cursorline = true,
                 },
-        })
-        vim.diagnostic.config({ virtual_text = false })
-        end
+            })
+            vim.diagnostic.config({ virtual_text = false })
+        end,
     },
 }

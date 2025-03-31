@@ -23,6 +23,8 @@ return {
                 "lua_ls",
                 "dockerls",
                 "bashls",
+                "gopls",
+                "golangci_lint_ls",
             },
             automatic_installation = true,
         })
@@ -32,6 +34,7 @@ return {
                 "shellcheck",
                 "stylua",
                 "hadolint",
+                "gofumpt",
             },
         })
     end,

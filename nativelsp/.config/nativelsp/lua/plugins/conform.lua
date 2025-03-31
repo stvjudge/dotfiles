@@ -25,6 +25,7 @@ return {
                 sh = { "shfmt" },
                 bash = { "shfmt" },
                 zsh = { "shfmt" },
+                go = { "gofumpt" },
             },
             -- Format on save event
             -- format_on_save = {

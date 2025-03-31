@@ -37,4 +37,5 @@ vim.cmd.highlight("DiagnosticUnderLineInfo guisp=#ead1dc gui=undercurl")
 vim.lsp.enable({
     "bash_ls",
     "lua_ls",
+    "gopls",
 })
