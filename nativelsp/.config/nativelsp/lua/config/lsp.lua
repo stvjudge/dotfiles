@@ -1,4 +1,6 @@
+-- Add Mason to PATH
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
+
 -- Add additional capabilities from blink
 local capabilities = {
     textDocument = {
@@ -10,7 +12,7 @@ local capabilities = {
 }
 capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
--- Enable diagnostics for current line only
+-- Add icons to severity levels
 vim.diagnostic.config({
     signs = {
         text = {
@@ -28,6 +30,7 @@ vim.diagnostic.config({
     },
 })
 
+-- Change underline to undercurl
 vim.cmd.highlight("DiagnosticUnderlineError guisp=#ff0000 gui=undercurl")
 vim.cmd.highlight("DiagnosticUnderLineWarn guisp=#ffff00 gui=undercurl")
 vim.cmd.highlight("DiagnosticUnderLineHint guisp=#9fc5e8 gui=undercurl")
@@ -37,5 +40,10 @@ vim.cmd.highlight("DiagnosticUnderLineInfo guisp=#ead1dc gui=undercurl")
 vim.lsp.enable({
     "bash_ls",
     "lua_ls",
-    "gopls",
+    "gop_ls",
+    "helm_ls",
+    "docker_ls",
+    "docker_compose_ls",
+    "yaml_ls",
+    "json_ls",
 })

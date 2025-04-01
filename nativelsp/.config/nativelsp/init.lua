@@ -45,5 +45,6 @@ require("lazy").setup("plugins", {
 
 -- Load autocmds, and lsp configs
 require("config.autocmds")
+require("config.keymaps")
 -- require("config.whichkey")
 require("config.lsp")

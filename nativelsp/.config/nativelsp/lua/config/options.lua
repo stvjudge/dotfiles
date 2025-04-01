@@ -65,22 +65,18 @@ o.expandtab = true
 
 opt.list = true
 opt.termguicolors = true
-opt.listchars = { tab = "-> ", space = "·" }
-opt.listchars:append('space:⋅')
-opt.listchars:append('trail:⋅')
-opt.fillchars = {
-	fold = ' ', -- or "⸱"
-	foldopen = '',
-	foldclose = '',
-	foldsep = ' ',
-	diff = '╱',
-	eob = ' ',
-
-	vert = ' ',
-}
-
+-- opt.listchars = { tab = "-> ", space = "·" }
+-- opt.listchars:append('space:⋅')
+-- opt.listchars:append('trail:⋅')
+-- opt.fillchars = {
+-- 	fold = ' ', -- or "⸱"
+-- 	foldopen = '',
+-- 	foldclose = '',
+-- 	foldsep = ' ',
+-- 	diff = '╱',
+-- 	eob = ' ',
+--
+-- 	vert = ' ',
+-- }
 
 o.background = "dark"
-
-
-

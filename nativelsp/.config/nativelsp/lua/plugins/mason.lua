@@ -22,9 +22,13 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "dockerls",
+                "docker_compose_language_service",
+                "helm_ls",
                 "bashls",
                 "gopls",
                 "golangci_lint_ls",
+                "jsonls",
+                "yamlls",
             },
             automatic_installation = true,
         })
@@ -35,6 +39,9 @@ return {
                 "stylua",
                 "hadolint",
                 "gofumpt",
+                "yamllint",
+                "jsonlint",
+                "prettier",
             },
         })
     end,

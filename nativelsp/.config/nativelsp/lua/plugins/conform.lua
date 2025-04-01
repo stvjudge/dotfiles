@@ -26,6 +26,9 @@ return {
                 bash = { "shfmt" },
                 zsh = { "shfmt" },
                 go = { "gofumpt" },
+                yaml = { "prettier" },
+                yml = { "prettier" },
+                json = { "prettier" },
             },
             -- Format on save event
             -- format_on_save = {

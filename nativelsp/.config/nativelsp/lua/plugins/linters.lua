@@ -17,6 +17,9 @@ return {
             zsh = { "shellcheck" },
             dockerfile = { "hadolint" },
             go = { "golangcilint" },
+            yaml = { "yamllint" },
+            yml = { "yamllint" },
+            json = { "jsonlint" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
