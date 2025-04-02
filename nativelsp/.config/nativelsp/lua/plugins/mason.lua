@@ -1,8 +1,8 @@
 return {
-    "williamboman/mason.nvim", -- lsp server installer
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "williamboman/mason.nvim",
     },
     config = function()
         require("mason").setup({
@@ -13,12 +13,11 @@ return {
                     package_uninstalled = "✗",
                 },
                 check_outdated_packages_on_open = true,
-                -- border = "rounded",
                 width = 0.9,
                 height = 0.9,
             },
         })
-        require("mason-lspconfig").setup({
+        require("mason-tool-installer").setup({
             ensure_installed = {
                 "lua_ls",
                 "dockerls",
@@ -29,11 +28,6 @@ return {
                 "golangci_lint_ls",
                 "jsonls",
                 "yamlls",
-            },
-            automatic_installation = true,
-        })
-        require("mason-tool-installer").setup({
-            ensure_installed = {
                 "shfmt",
                 "shellcheck",
                 "stylua",
@@ -42,6 +36,11 @@ return {
                 "yamllint",
                 "jsonlint",
                 "prettier",
+            },
+            -- Enable mason-lspconfig integration so we can
+            -- use lspconfig names instead of Mason names
+            integrations = {
+                ["mason-lspconfig"] = true,
             },
         })
     end,

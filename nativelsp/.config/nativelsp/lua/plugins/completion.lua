@@ -1,21 +1,17 @@
 return {
     "saghen/blink.cmp",
+    event = "InsertEnter",
     dependencies = {
         "rafamadriz/friendly-snippets",
         { "xzbdmw/colorful-menu.nvim", opts = {} },
         { "saghen/blink.compat", optional = true, opts = {} },
     },
     version = "1.*",
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     opts = {
-
         keymap = { preset = "enter" },
-
         appearance = {
             nerd_font_variant = "mono",
         },
-
         completion = {
             ghost_text = {
                 enabled = true,
@@ -29,6 +25,8 @@ return {
             },
             documentation = {
                 auto_show = true,
+                auto_show_delay_ms = 200,
+                treesitter_highlighting = true,
             },
             menu = {
                 auto_show = false,
@@ -37,7 +35,6 @@ return {
                     columns = {
                         { "kind_icon", gap = 1 },
                         { "label", gap = 1 },
-                        -- { "source_name" },
                     },
                     components = {
                         label = {
@@ -52,14 +49,39 @@ return {
                 },
             },
         },
-
         sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
+            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
             providers = {
+                lazydev = {
+                    name = "[LazyDev]",
+                    module = "lazydev.integrations.blink",
+                    score_offset = 100,
+                },
+                lsp = {
+                    name = "[LSP]",
+                    module = "blink.cmp.sources.lsp",
+                    opts = {},
+                },
+                path = {
+                    name = "[Path]",
+                    module = "blink.cmp.sources.path",
+                    score_offset = -1,
+                    opts = {
+                        show_hidden_files_by_default = true,
+                        get_cwd = function(_)
+                            return vim.fn.getcwd()
+                        end,
+                    },
+                },
                 snippets = {
-                    -- name = "[Snippets]",
-                    -- module = "blink.cmp.sources.snippets",
+                    name = "[Snippets]",
+                    module = "blink.cmp.sources.snippets",
                     score_offset = 2,
+                },
+                buffer = {
+                    name = "[Buffer]",
+                    min_keyword_length = 3,
+                    max_items = 5,
                 },
             },
         },
