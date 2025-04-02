@@ -16,4 +16,6 @@ map("n", "<leader>qo", function() vim.diagnostic.setqflist() end, { desc = "Open
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
+
+-- map("n", "<leader>dT", require("trouble").preview({}), { desc = "Toggle Truoble" })
 -- stylua: ignore end
