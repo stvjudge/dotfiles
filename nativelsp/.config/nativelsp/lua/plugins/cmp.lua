@@ -3,6 +3,7 @@ return {
     dependencies = {
         "rafamadriz/friendly-snippets",
         { "xzbdmw/colorful-menu.nvim", opts = {} },
+        { "saghen/blink.compat", optional = true, opts = {} },
     },
     version = "1.*",
     ---@module 'blink.cmp'
@@ -80,5 +81,8 @@ return {
             keymap = { preset = "enter" },
         },
     },
-    opts_extend = { "sources.default" },
+    opts_extend = {
+        "sources.default",
+        "sources.compat",
+    },
 }

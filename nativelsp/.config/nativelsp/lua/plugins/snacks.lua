@@ -14,5 +14,10 @@ return {
         notifier = { enabled = true },
         scratch = { enabled = true },
         statuscolumn = { enabled = true },
+        styles = {
+            notification = {
+                wo = { wrap = true },
+            },
+        },
     },
 }
