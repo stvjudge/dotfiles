@@ -13,7 +13,7 @@ return {
             sh = { "shellcheck" },
             bash = { "shellcheck" },
             zsh = { "shellcheck" },
-            dockerfile = { "hadolint" },
+            dockerfile = { "hadolint", "trivy" },
             go = { "golangcilint" },
             yaml = { "yamllint" },
             yml = { "yamllint" },

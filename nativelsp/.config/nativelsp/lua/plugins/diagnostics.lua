@@ -6,7 +6,7 @@ return {
         priority = 1000, -- needs to be loaded in first
         config = function()
             require("tiny-inline-diagnostic").setup({
-                -- transparent_bg = true,
+                transparent_bg = true,
                 preset = "modern",
                 options = {
                     show_source = true,
