@@ -7,7 +7,7 @@ return {
             debug = false,
             binPath = "sops",
             defaults = {
-                awsProfile = "phoenix-dev",
+                awsProfile = "phoenix",
             },
         },
     },

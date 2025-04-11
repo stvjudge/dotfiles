@@ -19,6 +19,8 @@ helm-ls-bin
 jq
 just
 k9s
+kind
+kind-debug
 kubectx
 lazydocker
 lazygit
