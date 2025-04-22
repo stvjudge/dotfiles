@@ -5,6 +5,7 @@ return {
         "rafamadriz/friendly-snippets",
         { "xzbdmw/colorful-menu.nvim", opts = {} },
         { "saghen/blink.compat", optional = true, opts = {} },
+        "fang2hou/blink-copilot",
     },
     version = "1.*",
     opts = {
@@ -50,8 +51,14 @@ return {
             },
         },
         sources = {
-            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
             providers = {
+                copilot = {
+                    name = "copilot",
+                    module = "blink-copilot",
+                    score_offset = 100,
+                    async = true,
+                },
                 lazydev = {
                     name = "[LazyDev]",
                     module = "lazydev.integrations.blink",

@@ -20,7 +20,6 @@ jq
 just
 k9s
 kind
-kind-debug
 kubectx
 lazydocker
 lazygit
@@ -46,7 +45,9 @@ which
 yay-bin
 yay-bin-debug
 yazi
+yq
 zellij
+zip
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
