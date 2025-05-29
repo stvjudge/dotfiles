@@ -16,6 +16,7 @@ github-cli
 go
 helm
 helm-ls-bin
+htop
 jq
 just
 k9s
@@ -43,7 +44,6 @@ unzip
 wget
 which
 yay-bin
-yay-bin-debug
 yazi
 yq
 zellij

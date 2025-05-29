@@ -37,6 +37,7 @@ return {
                 "jsonlint",
                 "prettier",
                 "trivy",
+                "powershell-editor-services",
             },
             -- Enable mason-lspconfig integration so we can
             -- use lspconfig names instead of Mason names
