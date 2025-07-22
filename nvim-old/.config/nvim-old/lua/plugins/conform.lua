@@ -25,10 +25,10 @@ return {
                 sh = { "shfmt" },
                 bash = { "shfmt" },
                 zsh = { "shfmt" },
-                go = { "gofumpt" },
-                yaml = { "prettier" },
-                yml = { "prettier" },
                 json = { "prettier" },
+                yaml = { "yamlfmt" },
+                go = { "goimports", "gofmt" },
+                markdown = { "prettier" },
             },
             -- Format on save event
             -- format_on_save = {

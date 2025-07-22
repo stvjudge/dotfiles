@@ -6,11 +6,13 @@ local g = vim.g
 
 g.mapleader = " "
 g.maplocalleader = " "
-g.deprecation_warnings = true
+
 g.have_nerd_font = true
 
-opt.completeopt = "menuone,noselect,popup,fuzzy"
 opt.backup = false
+
+opt.ignorecase = true
+
 opt.clipboard = "unnamedplus"
 -- Enable WslClipboard provider for clipboard
 if vim.fn.has("wsl") == 1 then
@@ -28,8 +30,6 @@ if vim.fn.has("wsl") == 1 then
     }
 end
 
-opt.ignorecase = true
-
 opt.confirm = true
 opt.cursorline = true
 opt.expandtab = true
@@ -41,9 +41,8 @@ opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 8
 opt.linebreak = true
-opt.signcolumn = "yes"
+
 opt.smartindent = true
-opt.wrap = true
 
 -- Fold settings
 o.foldenable = false
@@ -63,20 +62,11 @@ o.shiftwidth = 4
 o.shiftround = true
 o.expandtab = true
 
-opt.list = true
 opt.termguicolors = true
--- opt.listchars = { tab = "-> ", space = "·" }
--- opt.listchars:append('space:⋅')
--- opt.listchars:append('trail:⋅')
--- opt.fillchars = {
--- 	fold = ' ', -- or "⸱"
--- 	foldopen = '',
--- 	foldclose = '',
--- 	foldsep = ' ',
--- 	diff = '╱',
--- 	eob = ' ',
---
--- 	vert = ' ',
--- }
+
+opt.listchars = { tab = "-> ", space = "·" }
+opt.list = true
+
+g.deprecation_warnings = true
 
 o.background = "dark"

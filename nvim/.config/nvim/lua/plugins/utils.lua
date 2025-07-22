@@ -21,6 +21,7 @@ return {
                     file_pattern = {
                         ".env*",
                         "credentials",
+                        ".credentials",
                     },
                     cloak_pattern = { "=.+", ":.+" },
                 },

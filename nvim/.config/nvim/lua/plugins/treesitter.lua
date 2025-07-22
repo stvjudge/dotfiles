@@ -57,6 +57,7 @@ return {
                     "vim",
                     "vimdoc",
                     "yaml",
+                    "powershell",
                 },
             })
         end,

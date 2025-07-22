@@ -20,6 +20,7 @@ alias dcdrma="docker compose down --rm all"
 alias dot="cd ~/dotfiles"
 alias lg="lazygit"
 alias ll="ls -lha --color -v"
+alias ls="ls -lh --color -v"
 alias ..="cd .."
 alias ...="cd ~"
 alias c="clear"
@@ -32,4 +33,5 @@ alias sozsh=". ~/.zshrc"
 alias f="fzf --height=40% --layout=reverse --info=inline --border --filepath-word --cycle"
 alias p="python3"
 alias lzd=lazydocker
-alias n='NVIM_APPNAME="nativelsp" nvim'
+# alias n='NVIM_APPNAME="nativelsp" nvim'
+alias n="nvim"
