@@ -1,11 +1,11 @@
 return {
-    "zbirenbaum/copilot.lua",
+    "github/copilot.vim",
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
         require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { eanbled = false },
+            suggestion = { enabled = true },
+            panel = { enabled = false },
         })
     end,
 }
