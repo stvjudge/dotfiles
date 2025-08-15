@@ -37,7 +37,9 @@ return {
                 "jsonlint",
                 "prettier",
                 "trivy",
-                "powershell-editor-services",
+                -- "powershell-editor-services",
+                "cmake-language-server",
+                "cmakelint",
             },
             -- Enable mason-lspconfig integration so we can
             -- use lspconfig names instead of Mason names

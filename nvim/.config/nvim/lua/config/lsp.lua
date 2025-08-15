@@ -46,5 +46,6 @@ vim.lsp.enable({
     "docker_compose_ls",
     "yaml_ls",
     "json_ls",
-    "powershell_ls",
+    -- "powershell_ls",
+    "just_ls",
 })

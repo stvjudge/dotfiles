@@ -74,3 +74,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # eval "$(starship init zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
+export PATH="$HOME/bin:$PATH"
